@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF7EE"
+    tools:context=".CTSPEspressoActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/espresso"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivEspresso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:background="#00000000"
+            android:onClick="onPrevEspressoClick"
+            android:src="@drawable/icon_prev"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.002"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.126" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Espresso"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="Espresso is among the most common types of coffee drink in the world. The Espresso comes with different variations and changes across countries. However, this coffee is a highly concentrated one as such and is a straightforward choice. The coffee initially originated from Italy and is prepared by forcing pressure steam from the grounded beans. So the final coffee drink product comes as a very thick one in texture and hence also has high levels of caffeine. It is the most popular varieties of coffee drinks."
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/black" />
+
+</LinearLayout>

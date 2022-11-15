@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF7EE"
+    android:orientation="vertical"
+    tools:context=".CTSPLatteActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/latte"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivLatte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:background="#00000000"
+            android:onClick="onPrevLatteClick"
+            android:src="@drawable/icon_prev"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.002"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.126" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latte"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="Café Latte differs from several other coffee drinks mentioned earlier, as this contains a larger proportion of milk than others. These types come with a milk aroma because of the reason. Here, a shot of espresso is with a large mug of steamed milk. The bitterness of coffee and caffeine is cut away given the amount of milk proportion here. Some even add a layer of flavor on the top."
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/black" />
+
+</LinearLayout>
