@@ -16,6 +16,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
     }
 
+    // Chuyển màn hình
     public void onPrevClick(View view) {
         startActivity(new Intent(this, HomeActivity.class));
     }
