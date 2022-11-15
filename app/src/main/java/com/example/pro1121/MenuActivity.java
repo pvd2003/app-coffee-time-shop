@@ -17,6 +17,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     // Chuyển màn hình
+    // hello
     public void onPrevClick(View view) {
         startActivity(new Intent(this, HomeActivity.class));
     }
