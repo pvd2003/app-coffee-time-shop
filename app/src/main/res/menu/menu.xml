@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mQLSanPham"
+        android:icon="@drawable/ic_coffee"
+        android:title="Quản lý sản phẩm" />
+
+    <item
+        android:id="@+id/mQLLoaiSanPham"
+        android:icon="@drawable/ic_assignment"
+        android:title="Quản lý loại sản phẩm" />
+
+    <item
+        android:id="@+id/mQLDonHang"
+        android:icon="@drawable/ic_event_note"
+        android:title="Quản lý đơn hàng" />
+
+    <item
+        android:id="@+id/mQLTaiKhoan"
+        android:icon="@drawable/ic_person"
+        android:title="Quản lý tài khoản" />
+
+    <item android:title="Thống kê">
+        <menu>
+            <item
+                android:id="@+id/mTop10"
+                android:icon="@drawable/ic_vertical_align_top"
+                android:title="Top 10 sản phẩm mua nhiều nhất" />
+
+            <item
+                android:id="@+id/mDoanhThu"
+                android:icon="@drawable/ic_attach_money"
+                android:title="Doanh thu" />
+        </menu>
+    </item>
+
+    <item android:title="Người dùng">
+        <menu>
+            <item
+                android:id="@+id/mDoiMatKhau"
+                android:icon="@drawable/ic_vpn_key"
+                android:title="Đổi mật khẩu" />
+
+            <item
+                android:id="@+id/mThoat"
+                android:icon="@drawable/ic_logout"
+                android:title="Thoát" />
+        </menu>
+    </item>
+</menu>
