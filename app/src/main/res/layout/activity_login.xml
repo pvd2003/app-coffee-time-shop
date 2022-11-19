@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFF7EE"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="33dp"
         android:fontFamily="@font/raleway_medium"
-        android:text="login"
+        android:text="Login"
         android:textColor="@color/black"
         android:textSize="70sp" />
 
@@ -23,7 +23,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/baloo2_medium"
-        android:text="email"
+        android:text="Email"
         android:textColor="@color/black"
         android:textSize="30sp" />
 
@@ -50,7 +50,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/baloo2_medium"
-        android:text="password"
+        android:text="Password"
         android:textColor="@color/black"
         android:textSize="30sp" />
 
@@ -85,8 +85,7 @@
             android:background="@drawable/rectangle_custom"
             android:fontFamily="@font/baloo2_medium"
             android:gravity="center"
-            android:text="login"
-            android:onClick="onLoginClick"
+            android:text="Login"
             android:textColor="@color/black"
             android:textSize="30sp" />
 
@@ -99,7 +98,7 @@
             android:background="@drawable/rectangle_custom"
             android:fontFamily="@font/baloo2_medium"
             android:gravity="center"
-            android:text="register"
+            android:text="Register"
             android:textColor="@color/black"
             android:textSize="30sp" />
 

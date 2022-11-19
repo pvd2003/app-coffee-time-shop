@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFF7EE"
-    tools:context=".HomeActivity">
+    tools:context=".activities.HomeActivity">
 
     <ScrollView
         android:id="@+id/scrollView"

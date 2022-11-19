@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ĐỔI MẬT KHẨU"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:fontFamily="@font/baloo2_medium"
+        android:background="@drawable/header_fragment"/>
+
+    <EditText
+        android:id="@+id/etOldPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/baloo2_medium"
+        android:inputType="textPassword"
+        android:background="@drawable/custom_et"
+        android:hint="Mật khẩu cũ"/>
+
+    <EditText
+        android:id="@+id/etNewPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/baloo2_medium"
+        android:background="@drawable/custom_et"
+        android:hint="Mật khẩu mới"/>
+
+    <EditText
+        android:id="@+id/etRePass"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/baloo2_medium"
+        android:background="@drawable/custom_et"
+        android:hint="Xác nhận mật khẩu"/>
+
+</LinearLayout>

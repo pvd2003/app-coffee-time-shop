@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFF7EE"
-    tools:context=".CTSPEspressoActivity">
+    tools:context=".activities.CTSPEspressoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
