@@ -14,10 +14,10 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
-            app:titleTextColor="@color/white"
+            app:titleTextColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_700" />
+            android:background="#FCEEDE" />
 
         <FrameLayout
             android:id="@+id/frameLayout"
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:headerLayout="@layout/header_layout"
-        android:layout_gravity="start"
+        android:layout_gravity="end"
         app:menu="@menu/menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

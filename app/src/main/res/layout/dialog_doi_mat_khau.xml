@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:background="#FCEEDE">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:text="ĐỔI MẬT KHẨU"
         android:textSize="30sp"
         android:gravity="center"
@@ -19,13 +20,15 @@
         android:id="@+id/etOldPass"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:paddingLeft="15dp"
         android:fontFamily="@font/baloo2_medium"
         android:inputType="textPassword"
         android:background="@drawable/custom_et"
-        android:hint="Mật khẩu cũ"/>
+        android:hint="Mật khẩu cũ"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
 
     <EditText
         android:id="@+id/etNewPass"
@@ -37,7 +40,9 @@
         android:paddingLeft="15dp"
         android:fontFamily="@font/baloo2_medium"
         android:background="@drawable/custom_et"
-        android:hint="Mật khẩu mới"/>
+        android:hint="Mật khẩu mới"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
 
     <EditText
         android:id="@+id/etRePass"
@@ -50,6 +55,10 @@
         android:paddingLeft="15dp"
         android:fontFamily="@font/baloo2_medium"
         android:background="@drawable/custom_et"
-        android:hint="Xác nhận mật khẩu"/>
+        android:hint="Xác nhận mật khẩu"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"/>
+
 
 </LinearLayout>
