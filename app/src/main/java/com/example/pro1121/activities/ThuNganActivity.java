@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.pro1121.R;
 import com.example.pro1121.fragments.FragmentDoanhThu;
+import com.example.pro1121.fragments.FragmentHome;
 import com.example.pro1121.fragments.FragmentQLDonHang;
 import com.example.pro1121.fragments.FragmentQLLoaiSanPham;
 import com.example.pro1121.fragments.FragmentQLSanPham;
@@ -56,6 +57,10 @@ public class ThuNganActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
                 switch (item.getItemId()) {
+                    case R.id.mnHome:
+                        fragment = new FragmentHome();
+                        break;
+
                     case R.id.mQLSanPham:
                         fragment = new FragmentQLSanPham();
                         break;
@@ -100,7 +105,7 @@ public class ThuNganActivity extends AppCompatActivity {
                     manager.beginTransaction().replace(R.id.frameLayout, fragment).commit();
                     toolBar.setTitle(item.getTitle());
                 }
-                drawerLayout.closeDrawer(GravityCompat.END);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return false;
             }
         });
@@ -109,7 +114,7 @@ public class ThuNganActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            drawerLayout.openDrawer(GravityCompat.END);
+            drawerLayout.openDrawer(GravityCompat.START);
         }
         return super.onOptionsItemSelected(item);
     }
