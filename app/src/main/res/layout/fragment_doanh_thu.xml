@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFF7EE"
     android:padding="10dp">
     <TextView
         android:layout_width="wrap_content"
@@ -59,6 +60,7 @@
         android:textSize="20sp"
         android:gravity="center"/>
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,5 +70,25 @@
         android:text="Tổng doanh thu:"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/tong_doanh_thu">
+
+        <TextView
+            android:id="@+id/ketQuaDoanhThu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:text="100.000 VND"/>
+
+    </LinearLayout>
 
 </LinearLayout>
