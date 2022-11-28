@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "346090051806",
-    "project_id": "login-88d48",
-    "storage_bucket": "login-88d48.appspot.com"
+    "project_number": "702987340727",
+    "project_id": "coffee-time-shop",
+    "storage_bucket": "coffee-time-shop.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:346090051806:android:2a9ab0f5b1d0f85ca7ca4f",
+        "mobilesdk_app_id": "1:702987340727:android:8d9fcc240e4d71b6ef7632",
         "android_client_info": {
           "package_name": "com.example.pro1121"
         }
       },
       "oauth_client": [
         {
-          "client_id": "346090051806-e5pcaav3hvjba74db5e3k85jtls1jarq.apps.googleusercontent.com",
+          "client_id": "702987340727-k0000931sv12tt6rov6d8tlvkdij0lcf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pro1121",
+            "certificate_hash": "5482eaeb3810c7c2f3a042a1a777f6f51b7f64f5"
+          }
+        },
+        {
+          "client_id": "702987340727-lobo21pad6h0s5m2ml7j9e76nhgc93ps.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCLsNa0TnCInlabVKcqcpTdHWI29n4zgbQ"
+          "current_key": "AIzaSyCUvEdqWX7fsxiz7JXLwuNz3t2mSoXIZnI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "346090051806-e5pcaav3hvjba74db5e3k85jtls1jarq.apps.googleusercontent.com",
+              "client_id": "702987340727-lobo21pad6h0s5m2ml7j9e76nhgc93ps.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
