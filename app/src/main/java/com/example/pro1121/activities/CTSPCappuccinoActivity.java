@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.pro1121.R;
 import com.example.pro1121.activities.HomeActivity;
+import com.example.pro1121.fragments.FragmentHome;
 
 public class CTSPCappuccinoActivity extends AppCompatActivity {
 
@@ -15,11 +16,5 @@ public class CTSPCappuccinoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ctspcappuccino);
-    }
-
-    // Chuyển màn hình từ CTSPCappuccino sang Home
-    public void onPrevCappuccinoClick(View view) {
-        startActivity(new Intent(this, HomeActivity.class));
-        finish();
     }
 }
