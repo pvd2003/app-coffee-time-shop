@@ -11,28 +11,58 @@
         android:background="@drawable/header_fragment"
         android:fontFamily="@font/baloo2_medium"
         android:gravity="center"
-        android:text="THÊM PHÂN LOẠI"
+        android:text="THÊM ĐƠN HÀNG"
         android:textColor="@color/white"
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/edtmaloai"
+        android:id="@+id/edtMaDonHang"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_et"
-        android:hint="Mã Loại"
+        android:hint="Mã đơn hàng"
         android:paddingLeft="15dp"
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/edttenloai"
+        android:id="@+id/edtTenTaiKhoan"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_et"
+        android:hint="Tên tài khoản"
+        android:paddingLeft="15dp"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingLeft="15dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_et"
-        android:hint="Tên Loại"
+        android:hint="Email"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/edtSanPham"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_et"
+        android:hint="Sản phẩm"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/edtSoLuong"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_et"
+        android:hint="Số lượng"
         android:textSize="25sp" />
 
     <LinearLayout

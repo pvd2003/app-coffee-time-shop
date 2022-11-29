@@ -11,28 +11,38 @@
         android:background="@drawable/header_fragment"
         android:fontFamily="@font/baloo2_medium"
         android:gravity="center"
-        android:text="THÊM PHÂN LOẠI"
+        android:text="SỬA TÀI KHOẢN"
         android:textColor="@color/white"
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/edtmaloai"
+        android:id="@+id/edtmathanhvien"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_et"
-        android:hint="Mã Loại"
+        android:hint="Mã thành viên"
         android:paddingLeft="15dp"
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/edttenloai"
+        android:id="@+id/edttenthanhvien"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingLeft="15dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_et"
-        android:hint="Tên Loại"
+        android:hint="Tên thành viên"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/edtemail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_et"
+        android:hint="Email"
         android:textSize="25sp" />
 
     <LinearLayout
@@ -55,7 +65,7 @@
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:text="Thêm mới"
+            android:text="Sửa"
             android:textSize="20sp" />
 
     </LinearLayout>

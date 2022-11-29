@@ -11,12 +11,12 @@
         android:background="@drawable/header_fragment"
         android:fontFamily="@font/baloo2_medium"
         android:gravity="center"
-        android:text="THÊM PHÂN LOẠI"
+        android:text="SỬA PHÂN LOẠI"
         android:textColor="@color/white"
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/edtmaloai"
+        android:id="@+id/edtEditMaLoai"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
@@ -26,7 +26,7 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/edttenloai"
+        android:id="@+id/edtEditTenLoai"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingLeft="15dp"
@@ -50,12 +50,12 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btnthemmoi"
+            android:id="@+id/btnsua"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_margin="8dp"
             android:layout_weight="1"
-            android:text="Thêm mới"
+            android:layout_margin="8dp"
+            android:text="Sửa"
             android:textSize="20sp" />
 
     </LinearLayout>
