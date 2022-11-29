@@ -4,6 +4,9 @@ public class Loaisanpham {
     private  int maloai;
     private  String tenloai;
 
+    public Loaisanpham() {
+    }
+
     public Loaisanpham(int maloai, String tenloai) {
         this.maloai = maloai;
         this.tenloai = tenloai;
