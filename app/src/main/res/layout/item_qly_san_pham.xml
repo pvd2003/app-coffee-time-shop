@@ -26,13 +26,15 @@
             android:layout_marginLeft="20dp">
 
             <TextView
+                android:id="@+id/tvtenloaisp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:textSize="30dp"
-                android:text="Latte"/>
+                android:text="Latte"
+                android:textSize="30dp" />
 
             <TextView
+                android:id="@+id/tvgiatiensp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
