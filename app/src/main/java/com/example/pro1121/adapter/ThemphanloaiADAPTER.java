@@ -59,5 +59,6 @@ public class ThemphanloaiADAPTER extends RecyclerView.Adapter<ThemphanloaiADAPTE
             ivedit= view.findViewById(R.id.ivEdit);
 
         }
+        //
     }
 }
