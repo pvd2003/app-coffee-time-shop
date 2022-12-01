@@ -117,7 +117,7 @@ public class FragmentQLSanPham extends Fragment {
                             for (QueryDocumentSnapshot doc : querySnapshot) {
                                 Sanpham sanpham = new Sanpham();
                                 sanpham.setTenloai(doc.get("tenloai").toString());
-                                sanpham.setGiatien(doc.get("giatien").toString());
+//                                sanpham.setGiatien(doc.get("giatien").toString());
                                 sanphamList.add(sanpham);
                             }
 

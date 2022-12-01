@@ -79,7 +79,7 @@ public class FragmentQLLoaiSanPham extends Fragment {
                             QuerySnapshot querySnapshot = task.getResult();
                             for (QueryDocumentSnapshot doc : querySnapshot) {
                                 Loaisanpham lsp = new Loaisanpham();
-                                lsp.setMaloai(Integer.parseInt(doc.get("maloai").toString()));
+//                                lsp.setMaloai(Integer.parseInt(doc.get("maloai").toString()));
                                 lsp.setTenloai(doc.get("tenloai").toString());
                                 mlistlsp.add(lsp);
                             }
