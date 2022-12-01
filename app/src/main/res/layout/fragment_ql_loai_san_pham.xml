@@ -3,8 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF7EE">
+    <EditText
+        android:id="@+id/edtmaloailsp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_et"
+        android:hint="Mã Loại"
+        android:paddingLeft="15dp"
+        android:textSize="25sp" />
+
+    <EditText
+        android:layout_below="@id/edtmaloailsp"
+        android:id="@+id/edttenloailsp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_et"
+        android:hint="Tên Loại"
+        android:textSize="25sp" />
+
+
+        <Button
+            android:layout_below="@id/edttenloailsp"
+            android:id="@+id/btnhuylsp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="List"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_below="@id/btnhuylsp"
+            android:id="@+id/btnthemmoilsp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="Thêm mới"
+            android:textSize="20sp" />
+
+
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/btnthemmoilsp"
         android:id="@+id/rvQLLoaiSanPham"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
