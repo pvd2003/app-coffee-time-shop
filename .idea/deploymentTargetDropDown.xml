@@ -7,12 +7,19 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\as\.android\avd\Nexus_5_API_30.avd" />
+<<<<<<< Updated upstream
+            <value value="C:\Users\as\.android\avd\Nexus_5X_API_30.avd" />
+=======
+            <value value="C:\Users\as\.android\avd\Pixel_2_API_30_2.avd" />
+>>>>>>> Stashed changes
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-11-29T10:57:30.989134Z" />
-    <timeTargetWasSelectedWithDropDown value="2022-11-22T16:13:01.796161500Z" />
+<<<<<<< Updated upstream
+    <timeTargetWasSelectedWithDropDown value="2022-12-01T11:12:12.248737800Z" />
+=======
+    <timeTargetWasSelectedWithDropDown value="2022-11-30T13:27:46.684492400Z" />
+>>>>>>> Stashed changes
   </component>
 </project>
