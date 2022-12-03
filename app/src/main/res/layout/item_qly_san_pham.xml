@@ -1,48 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:background="#E1D2A5">
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#E1D2A5"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/titleSanPham"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mn_1" />
+            android:src="@drawable/latte_m"
+            android:layout_gravity="center"/>
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/tvtenloaisp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Latte"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#E1D2A5"
             android:orientation="vertical"
-            android:layout_marginLeft="20dp">
+            android:layout_margin="10dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/titleSanPham1"
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                android:layout_marginTop="7dp"
+                android:src="@drawable/sp_cappuccino"
+                android:layout_gravity="center"/>
+
 
             <TextView
-                android:id="@+id/tvtenloaisp"
+                android:id="@+id/tvtenloaisp1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Latte"
-                android:textSize="30dp" />
-
-            <TextView
-                android:id="@+id/tvgiatiensp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
                 android:textSize="30dp"
-                android:text="20.000"/>
+                android:gravity="center"/>
 
         </LinearLayout>
-
 
     </LinearLayout>
 
