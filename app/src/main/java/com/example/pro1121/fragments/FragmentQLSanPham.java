@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -121,8 +122,8 @@ public class FragmentQLSanPham extends Fragment {
                                 sanphamList.add(sanpham);
                             }
 
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-                            recyclerView.setLayoutManager(linearLayoutManager);
+                            GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+                            recyclerView.setLayoutManager(gridLayoutManager);
                             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                                     , DividerItemDecoration.VERTICAL);
                             recyclerView.addItemDecoration(dividerItemDecoration);

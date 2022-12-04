@@ -35,7 +35,6 @@ public class SanphamADAPTER extends RecyclerView.Adapter<SanphamADAPTER.Viewhode
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
         Sanpham sp = mlist.get(position);
      holder.txttenloai.setText(sp.getTenloai());
-     holder.txttenloai1.setText(sp.getTenloai());
 
     }
 
@@ -45,15 +44,13 @@ public class SanphamADAPTER extends RecyclerView.Adapter<SanphamADAPTER.Viewhode
     }
 
     public class Viewhoder extends RecyclerView.ViewHolder {
-      TextView txttenloai, txttenloai1;
-      ImageView imsp, imsp1;
+      TextView txttenloai;
+      ImageView imsp;
 
         public Viewhoder(@NonNull View view) {
             super(view);
             txttenloai= view.findViewById(R.id.tvtenloaisp);
             imsp= view.findViewById(R.id.titleSanPham);
-            imsp1 = view.findViewById(R.id.titleSanPham1);
-            txttenloai1 = view.findViewById(R.id.tvtenloaisp1);
 
         }
         //

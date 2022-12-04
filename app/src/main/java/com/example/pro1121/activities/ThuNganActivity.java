@@ -36,6 +36,7 @@ public class ThuNganActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +47,13 @@ public class ThuNganActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
 
+        FragmentHome fragmentHome = new FragmentHome();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentHome).commit();
+
+
         setSupportActionBar(toolBar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("COFFEE TIME SHOP");
+        actionBar.setTitle("Home");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
@@ -96,7 +101,7 @@ public class ThuNganActivity extends AppCompatActivity {
                         break;
 
                     default:
-
+                        fragment = new FragmentHome();
                         break;
                 }
 
