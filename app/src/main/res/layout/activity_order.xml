@@ -45,11 +45,7 @@
                     android:orientation="vertical">
 
                     <TextView
-<<<<<<< HEAD
                         android:id="@+id/ten"
-=======
-                        android:id="@+id/titleSP"
->>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
@@ -59,11 +55,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-<<<<<<< HEAD
                         android:id="@+id/gia"
-=======
-                        android:id="@+id/priceSP"
->>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"

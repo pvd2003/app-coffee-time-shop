@@ -48,12 +48,10 @@ public class FragmentQLSanPham extends Fragment {
     ImageView ivtitle;
     RecyclerView recyclerView;
     Button btnthem, btnhuy;
-    FloatingActionButton floatingActionButton;
     private List<Sanpham> sanphamList;
-    private SPADAPTER sanphamADAPTER;
+    private SanphamADAPTER sanphamADAPTER;
 
 
-    @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -64,13 +62,10 @@ public class FragmentQLSanPham extends Fragment {
         recyclerView = view.findViewById(R.id.rvQLSanPham);
         btnhuy = view.findViewById(R.id.btnhuy);
         btnthem = view.findViewById(R.id.btnthemmoi);
-        floatingActionButton = view.findViewById(R.id.floatAdd);
 
        onclickthem();
         getlistdatafirebasestore();
         return view;
-
-
 
     }
 
@@ -119,18 +114,16 @@ public class FragmentQLSanPham extends Fragment {
                             for (QueryDocumentSnapshot doc : querySnapshot) {
                                 Sanpham sanpham = new Sanpham();
                                 sanpham.setTenloai(doc.get("tenloai").toString());
-//                                sanpham.setGiatien(doc.get("giatien").toString());
-                                sanphamList.add(sanpham);
-                            }
+//                             sanpham.setGiatien(doc.get("giatien").toString());
 
-                            GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+                                sanphamList.add(sanpham);
+
+                            }
+                            GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
                             recyclerView.setLayoutManager(gridLayoutManager);
                             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                                     , DividerItemDecoration.VERTICAL);
                             recyclerView.addItemDecoration(dividerItemDecoration);
-<<<<<<< HEAD
-                            sanphamADAPTER = new SPADAPTER(sanphamList);
-=======
                             sanphamADAPTER = new SanphamADAPTER(sanphamList, new ItemClick() {
                                 @Override
                                 public void onClickSanPham(Sanpham sanpham) {
@@ -138,20 +131,13 @@ public class FragmentQLSanPham extends Fragment {
                                     edtgiatien.setText(sanpham.getGiatien());
                                 }
                             });
->>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
                             recyclerView.setAdapter(sanphamADAPTER);
-
                         }
-
 
                     }
                 });
-
-
             }
         });
-
-
     }
 }
 

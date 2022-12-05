@@ -8,13 +8,12 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-=======
->>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
+
 import android.widget.TextView;
 
 import com.example.pro1121.R;
@@ -28,18 +27,11 @@ public class OrderActivity extends AppCompatActivity {
     int soluong;
     int madonhang = 1;
 
-<<<<<<< HEAD
-    @SuppressLint("MissingInflatedId")
-=======
-    TextView tenSanPham, giaSanPham;
 
-
->>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-<<<<<<< HEAD
         txtten= findViewById(R.id.ten);
         txtgia= findViewById(R.id.gia);
         txtcong= findViewById(R.id.cong);
@@ -88,13 +80,7 @@ public class OrderActivity extends AppCompatActivity {
 
             }
         });
-    }
 
-    }
-=======
-        tenSanPham = findViewById(R.id.titleSP);
-        giaSanPham = findViewById(R.id.priceSP);
     }
 
 }
->>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
