@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -30,11 +29,12 @@ import com.example.pro1121.fragments.FragmentQLTaiKhoan;
 import com.example.pro1121.fragments.FragmentTop10;
 import com.google.android.material.navigation.NavigationView;
 
-public class ThuNganActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private Toolbar toolBar;
     private FrameLayout frameLayout;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +46,13 @@ public class ThuNganActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
 
+        FragmentHome fragmentHome = new FragmentHome();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragmentHome).commit();
+
+
         setSupportActionBar(toolBar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("COFFEE TIME SHOP");
+        actionBar.setTitle("Home");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
@@ -91,12 +95,12 @@ public class ThuNganActivity extends AppCompatActivity {
                         break;
 
                     case R.id.mThoat:
-                        startActivity(new Intent(ThuNganActivity.this, LoginActivity.class));
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         finish();
                         break;
 
                     default:
-
+                        fragment = new FragmentHome();
                         break;
                 }
 
@@ -139,7 +143,7 @@ public class ThuNganActivity extends AppCompatActivity {
         alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ThuNganActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Successful", Toast.LENGTH_SHORT).show();
             }
         });
 

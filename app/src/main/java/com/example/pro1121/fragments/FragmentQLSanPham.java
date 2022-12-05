@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +24,7 @@ import com.example.pro1121.R;
 import com.example.pro1121.adapter.SPADAPTER;
 import com.example.pro1121.adapter.SanphamADAPTER;
 import com.example.pro1121.adapter.ThemphanloaiADAPTER;
+import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Loaisanpham;
 import com.example.pro1121.model.Sanpham;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -121,12 +123,22 @@ public class FragmentQLSanPham extends Fragment {
                                 sanphamList.add(sanpham);
                             }
 
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-                            recyclerView.setLayoutManager(linearLayoutManager);
+                            GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+                            recyclerView.setLayoutManager(gridLayoutManager);
                             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                                     , DividerItemDecoration.VERTICAL);
                             recyclerView.addItemDecoration(dividerItemDecoration);
+<<<<<<< HEAD
                             sanphamADAPTER = new SPADAPTER(sanphamList);
+=======
+                            sanphamADAPTER = new SanphamADAPTER(sanphamList, new ItemClick() {
+                                @Override
+                                public void onClickSanPham(Sanpham sanpham) {
+                                    edttenloai.setText(sanpham.getTenloai());
+                                    edtgiatien.setText(sanpham.getGiatien());
+                                }
+                            });
+>>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
                             recyclerView.setAdapter(sanphamADAPTER);
 
                         }

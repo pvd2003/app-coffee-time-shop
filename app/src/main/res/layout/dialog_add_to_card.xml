@@ -57,6 +57,7 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:text="Hủy"
+            android:backgroundTint="#963F0D"
             android:textSize="20sp" />
 
         <Button
@@ -66,6 +67,7 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:text="OK"
+            android:backgroundTint="#963F0D"
             android:textSize="20sp" />
 
     </LinearLayout>

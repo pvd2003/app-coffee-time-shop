@@ -45,7 +45,11 @@
                     android:orientation="vertical">
 
                     <TextView
+<<<<<<< HEAD
                         android:id="@+id/ten"
+=======
+                        android:id="@+id/titleSP"
+>>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
@@ -55,7 +59,11 @@
                         android:textStyle="bold" />
 
                     <TextView
+<<<<<<< HEAD
                         android:id="@+id/gia"
+=======
+                        android:id="@+id/priceSP"
+>>>>>>> bdee6ba6297f18f6e3f7188dea12233f52d1a4c6
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -78,7 +86,7 @@
                         android:id="@+id/tru"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@drawable/bg_button_corner_oval"
+                        android:background="@drawable/bg_button_corner_20"
                         android:gravity="center"
                         android:text="ꟷ"
                         android:textColor="@color/white"
@@ -97,7 +105,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="15dp"
-                        android:background="@drawable/bg_button_corner_oval"
+                        android:background="@drawable/bg_button_corner_20"
                         android:gravity="center"
                         android:text="+"
                         android:textColor="@color/white"
@@ -128,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/bg_corner_25"
+                    android:background="@drawable/bg_button_corner_20"
                     android:fontFamily="@font/baloo2_medium"
                     android:gravity="center"
                     android:text="Buy now"
