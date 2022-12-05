@@ -27,6 +27,7 @@ import com.example.pro1121.activities.OrderActivity;
 import com.example.pro1121.adapter.PhotoAdapter;
 import com.example.pro1121.adapter.SanphamADAPTER;
 import com.example.pro1121.adapter.ThemphanloaiADAPTER;
+import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Photo;
 import com.example.pro1121.model.Sanpham;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -86,7 +87,13 @@ public class FragmentHome extends Fragment {
                     DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                             , DividerItemDecoration.VERTICAL);
                     recyclerView.addItemDecoration(dividerItemDecoration);
-                    msanphamaapter = new SanphamADAPTER(mlistsp);
+                    msanphamaapter = new SanphamADAPTER(mlistsp, new ItemClick() {
+                        @Override
+                        public void onClickSanPham(Sanpham sanpham) {
+                            Intent intent = new Intent(getContext(),OrderActivity.class);
+                            startActivity(intent);
+                        }
+                    });
                     recyclerView.setAdapter(msanphamaapter);
 
                 }

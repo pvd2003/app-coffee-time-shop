@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pro1121.R;
 import com.example.pro1121.adapter.SanphamADAPTER;
 import com.example.pro1121.adapter.ThemphanloaiADAPTER;
+import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Loaisanpham;
 import com.example.pro1121.model.Sanpham;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -127,7 +128,13 @@ public class FragmentQLSanPham extends Fragment {
                             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                                     , DividerItemDecoration.VERTICAL);
                             recyclerView.addItemDecoration(dividerItemDecoration);
-                            sanphamADAPTER = new SanphamADAPTER(sanphamList);
+                            sanphamADAPTER = new SanphamADAPTER(sanphamList, new ItemClick() {
+                                @Override
+                                public void onClickSanPham(Sanpham sanpham) {
+                                    edttenloai.setText(sanpham.getTenloai());
+                                    edtgiatien.setText(sanpham.getGiatien());
+                                }
+                            });
                             recyclerView.setAdapter(sanphamADAPTER);
 
                         }

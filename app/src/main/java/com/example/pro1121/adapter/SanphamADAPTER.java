@@ -10,18 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
+import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Loaisanpham;
 import com.example.pro1121.model.Sanpham;
 
 import java.util.List;
 
 public class SanphamADAPTER extends RecyclerView.Adapter<SanphamADAPTER.Viewhoder> {
+    private ItemClick itemClick;
 
 
     private List<Sanpham> mlist;
 
-    public SanphamADAPTER(List<Sanpham> mlist) {
+    public SanphamADAPTER(List<Sanpham> mlist, ItemClick itemClick ) {
         this.mlist = mlist;
+        this.itemClick = itemClick;
     }
 
     @NonNull
@@ -35,6 +38,16 @@ public class SanphamADAPTER extends RecyclerView.Adapter<SanphamADAPTER.Viewhode
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
         Sanpham sp = mlist.get(position);
      holder.txttenloai.setText(sp.getTenloai());
+
+
+
+     holder.imsp.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Sanpham sanpham = mlist.get(holder.getAdapterPosition());
+             itemClick.onClickSanPham(sanpham);
+         }
+     });
 
     }
 
@@ -51,6 +64,8 @@ public class SanphamADAPTER extends RecyclerView.Adapter<SanphamADAPTER.Viewhode
             super(view);
             txttenloai= view.findViewById(R.id.tvtenloaisp);
             imsp= view.findViewById(R.id.titleSanPham);
+
+
 
         }
         //
