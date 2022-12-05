@@ -30,6 +30,7 @@
                 android:textSize="25sp" />
 
             <EditText
+                android:layout_below="@id/edttenloaisp"
                 android:id="@+id/edtgiatiensp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -45,33 +46,25 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:layout_below="@id/edtgiatiensp"
                     android:id="@+id/btnhuy"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:layout_margin="5dp"
+                    android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:backgroundTint="#963F0D"
                     android:text="List"
                     android:textSize="20sp" />
 
                 <Button
+                    android:layout_below="@id/btnhuy"
                     android:id="@+id/btnthemmoi"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:layout_margin="5dp"
+                    android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:backgroundTint="#963F0D"
-                    android:text="Thêm"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/btnsua"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#963F0D"
-                    android:text="Sửa"
+                    android:text="Thêm mới"
                     android:textSize="20sp" />
 
             </LinearLayout>

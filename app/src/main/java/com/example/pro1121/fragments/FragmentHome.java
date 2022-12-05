@@ -8,19 +8,25 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.pro1121.R;
+import com.example.pro1121.activities.CTSPCappuccinoActivity;
+import com.example.pro1121.activities.CTSPEspressoActivity;
+import com.example.pro1121.activities.CTSPLatteActivity;
 import com.example.pro1121.activities.OrderActivity;
 import com.example.pro1121.adapter.PhotoAdapter;
 import com.example.pro1121.adapter.SanphamADAPTER;
+import com.example.pro1121.adapter.ThemphanloaiADAPTER;
 import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Photo;
 import com.example.pro1121.model.Sanpham;

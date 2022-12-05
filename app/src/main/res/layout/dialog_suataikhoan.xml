@@ -56,7 +56,6 @@
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:backgroundTint="#963F0D"
             android:text="Hủy"
             android:textSize="20sp" />
 
@@ -66,10 +65,8 @@
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:backgroundTint="#963F0D"
             android:text="Sửa"
             android:textSize="20sp" />
-
 
     </LinearLayout>
 </LinearLayout>

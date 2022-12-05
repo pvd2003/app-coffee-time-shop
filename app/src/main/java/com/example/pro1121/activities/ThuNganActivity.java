@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -29,7 +30,7 @@ import com.example.pro1121.fragments.FragmentQLTaiKhoan;
 import com.example.pro1121.fragments.FragmentTop10;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class ThuNganActivity extends AppCompatActivity {
     private Toolbar toolBar;
     private FrameLayout frameLayout;
     private NavigationView navigationView;
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.mThoat:
-                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        startActivity(new Intent(ThuNganActivity.this, LoginActivity.class));
                         finish();
                         break;
 
@@ -143,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ThuNganActivity.this, "Successful", Toast.LENGTH_SHORT).show();
             }
         });
 

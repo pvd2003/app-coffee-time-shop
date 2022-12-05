@@ -51,7 +51,7 @@
                     android:id="@+id/btnhuylsp"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
-                    android:layout_margin="5dp"
+                    android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:text="List"
                     android:backgroundTint="#963F0D"
@@ -61,20 +61,10 @@
                     android:id="@+id/btnthemmoilsp"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
-                    android:layout_margin="5dp"
+                    android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:backgroundTint="#963F0D"
-                    android:text="Thêm"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/btnsualsp"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#963F0D"
-                    android:text="Sửa"
+                    android:text="Thêm mới"
                     android:textSize="20sp" />
             </LinearLayout>
 
