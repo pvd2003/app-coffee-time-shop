@@ -37,6 +37,7 @@ public class SanphamADAPTER extends RecyclerView.Adapter<SanphamADAPTER.Viewhode
      holder.txttenloai.setText(sp.getTenloai());
      holder.txttenloai1.setText(sp.getTenloai());
 
+
     }
 
     @Override

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
+import com.example.pro1121.adapter.SPADAPTER;
 import com.example.pro1121.adapter.SanphamADAPTER;
 import com.example.pro1121.adapter.ThemphanloaiADAPTER;
 import com.example.pro1121.model.Loaisanpham;
@@ -46,8 +47,8 @@ public class FragmentQLSanPham extends Fragment {
     RecyclerView recyclerView;
     Button btnthem, btnhuy;
     FloatingActionButton floatingActionButton;
-    List<Sanpham> sanphamList;
-    SanphamADAPTER sanphamADAPTER;
+    private List<Sanpham> sanphamList;
+    private SPADAPTER sanphamADAPTER;
 
 
     @SuppressLint("MissingInflatedId")
@@ -85,7 +86,6 @@ public class FragmentQLSanPham extends Fragment {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(getContext(), "add thành công!", Toast.LENGTH_SHORT).show();
-
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -126,7 +126,7 @@ public class FragmentQLSanPham extends Fragment {
                             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                                     , DividerItemDecoration.VERTICAL);
                             recyclerView.addItemDecoration(dividerItemDecoration);
-                            sanphamADAPTER = new SanphamADAPTER(sanphamList);
+                            sanphamADAPTER = new SPADAPTER(sanphamList);
                             recyclerView.setAdapter(sanphamADAPTER);
 
                         }

@@ -129,7 +129,7 @@ public class FragmentHome extends Fragment {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), OrderActivity.class));
+                startActivity(new Intent(getContext(),OrderActivity.class));
             }
         });
 
