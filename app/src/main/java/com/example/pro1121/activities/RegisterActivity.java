@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                     return;
                 } else {
                     Toast.makeText(RegisterActivity.this, "Tạo tài khoản không thành công", Toast.LENGTH_SHORT).show();
