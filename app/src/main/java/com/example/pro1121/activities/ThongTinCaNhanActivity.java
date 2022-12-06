@@ -2,6 +2,7 @@ package com.example.pro1121.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -28,7 +29,9 @@ public class ThongTinCaNhanActivity extends AppCompatActivity {
         btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NhapTTCN();
+                Toast.makeText(ThongTinCaNhanActivity.this, "xác nhận thành công", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ThongTinCaNhanActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

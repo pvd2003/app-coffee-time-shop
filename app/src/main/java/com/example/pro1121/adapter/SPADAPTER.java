@@ -35,7 +35,7 @@ public class SPADAPTER extends RecyclerView.Adapter<SPADAPTER.Viewhoder> {
     @Override
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
         Sanpham sp = mlist.get(position);
-     holder.txttensp.setText(sp.getTenloai());
+     holder.txttensp.setText(sp.getTenSP());
      holder.imupdate.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {

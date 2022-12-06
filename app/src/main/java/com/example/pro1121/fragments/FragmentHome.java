@@ -65,7 +65,7 @@ public class FragmentHome extends Fragment {
                     QuerySnapshot querySnapshot = task.getResult();
                     for (QueryDocumentSnapshot doc : querySnapshot) {
                         Sanpham sanpham = new Sanpham();
-                        sanpham.setTenloai(doc.get("tenloai").toString());
+                        sanpham.setTenSP(doc.get("tenloai").toString());
 //                                sanpham.setGiatien(doc.get("giatien").toString());
                         mlistsp.add(sanpham);
                     }

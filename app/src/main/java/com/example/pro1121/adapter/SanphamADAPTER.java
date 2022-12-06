@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
 import com.example.pro1121.model.ItemClick;
-import com.example.pro1121.model.Loaisanpham;
 import com.example.pro1121.model.Sanpham;
 
 import java.util.List;
@@ -37,7 +36,7 @@ public class SanphamADAPTER extends RecyclerView.Adapter<SanphamADAPTER.Viewhode
     @Override
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
         Sanpham sp = mlist.get(position);
-     holder.txttenloai.setText(sp.getTenloai());
+     holder.txttenloai.setText(sp.getTenSP());
 
 
 

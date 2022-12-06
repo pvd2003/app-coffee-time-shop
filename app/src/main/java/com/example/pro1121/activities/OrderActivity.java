@@ -45,7 +45,7 @@ public class OrderActivity extends AppCompatActivity {
          String ten = txtten.getText().toString();
          
         Sanpham sanpham = (Sanpham) getIntent().getSerializableExtra("chitietsanppham");
-        txtten.setText(sanpham.getTenloai());
+        txtten.setText(sanpham.getTenSP());
 
 
         txtcong.setOnClickListener(new View.OnClickListener() {
