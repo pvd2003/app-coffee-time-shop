@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thu_ngan);
+        setContentView(R.layout.activity_main);
 
         toolBar = findViewById(R.id.toolBar);
         frameLayout = findViewById(R.id.frameLayout);
