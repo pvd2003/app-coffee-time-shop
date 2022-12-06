@@ -79,6 +79,7 @@ public class FragmentHome extends Fragment {
                         @Override
                         public void onClickSanPham(Sanpham sanpham) {
                             Intent intent = new Intent(getContext(),OrderActivity.class);
+                            intent.putExtra("chitietsanppham",sanpham);
                             startActivity(intent);
                         }
                     });
