@@ -5,6 +5,10 @@
         android:title="Home"
         android:icon="@drawable/ic_home"/>
 
+    <item android:id="@+id/mQLGioHang"
+        android:title="Giỏ Hàng"
+        android:icon="@drawable/ic_gio_hang"/>
+
     <item
         android:id="@+id/mQLSanPham"
         android:icon="@drawable/ic_coffee"
