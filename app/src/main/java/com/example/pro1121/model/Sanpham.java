@@ -3,30 +3,30 @@ package com.example.pro1121.model;
 import java.io.Serializable;
 
 public class Sanpham implements Serializable {
-    private String tensp;
-    private String giatien;
+    private String tensanpham;
+    private String giasanpham;
 
     public Sanpham() {
     }
 
-    public Sanpham(String tensp, String giatien) {
-        this.tensp = tensp;
-        this.giatien = giatien;
+    public Sanpham(String tensanpham, String giasanpham) {
+        this.tensanpham = tensanpham;
+        this.giasanpham = giasanpham;
     }
 
     public String getTenSP() {
-        return tensp;
+        return tensanpham;
     }
 
-    public void setTenSP(String tenloai) {
-        this.tensp = tensp;
+    public void setTenSP(String tensanpham) {
+        this.tensanpham = tensanpham;
     }
 
     public String getGiatien() {
-        return giatien;
+        return giasanpham;
     }
 
-    public void setGiatien(String giatien) {
-        this.giatien = giatien;
+    public void setGiatien(String giasanpham) {
+        this.giasanpham = giasanpham;
     }
 }
