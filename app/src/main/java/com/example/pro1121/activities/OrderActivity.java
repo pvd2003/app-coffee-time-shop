@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pro1121.R;
+import com.example.pro1121.model.Sanpham;
 
 public class OrderActivity extends AppCompatActivity {
    TextView txtbuynow ;
@@ -42,6 +43,9 @@ public class OrderActivity extends AppCompatActivity {
          soluong = Integer.parseInt(txtnumber.getText().toString());
          tongtien=(soluong * 3.50);
          String ten = txtten.getText().toString();
+         
+        Sanpham sanpham = (Sanpham) getIntent().getSerializableExtra("chitietsanppham");
+        txtten.setText(sanpham.getTenSP());
 
 
         txtcong.setOnClickListener(new View.OnClickListener() {

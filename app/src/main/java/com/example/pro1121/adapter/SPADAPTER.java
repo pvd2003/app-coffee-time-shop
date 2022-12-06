@@ -28,14 +28,14 @@ public class SPADAPTER extends RecyclerView.Adapter<SPADAPTER.Viewhoder> {
     @NonNull
     @Override
     public Viewhoder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sanpham,parent,false);
+       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_san_pham,parent,false);
        return new Viewhoder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
         Sanpham sp = mlist.get(position);
-     holder.txttensp.setText(sp.getTenloai());
+     holder.txttensp.setText(sp.getTenSP());
      holder.imupdate.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
@@ -66,8 +66,8 @@ public class SPADAPTER extends RecyclerView.Adapter<SPADAPTER.Viewhoder> {
             super(view);
             txttensp= view.findViewById(R.id.tvtensp);
             imsp= view.findViewById(R.id.sanpham);
-            imdelit = view.findViewById(R.id.ivDeletesp);
-            imupdate = view.findViewById(R.id.ivEditsp);
+            imdelit = view.findViewById(R.id.ivEdit);
+            imupdate = view.findViewById(R.id.ivDelete);
 
 
 

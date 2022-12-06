@@ -1,6 +1,5 @@
 package com.example.pro1121.fragments;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,17 +10,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
-import com.example.pro1121.adapter.SanphamADAPTER;
 import com.example.pro1121.adapter.ThemphanloaiADAPTER;
-import com.example.pro1121.model.Loaisanpham;
-import com.example.pro1121.model.Sanpham;
+import com.example.pro1121.model.LoaiSanPham;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,10 +38,9 @@ import java.util.Map;
 public class FragmentQLLoaiSanPham extends Fragment {
     Button btnadd,btnhuy;
     EditText edtmaloai,edttenloai;
-    FloatingActionButton floatingActionButton;
     RecyclerView recyclerView;
     ThemphanloaiADAPTER phanloaiadapter;
-    List<Loaisanpham> mlistlsp;
+    List<LoaiSanPham> mlistlsp;
 
     @Nullable
     @Override
@@ -56,7 +51,6 @@ public class FragmentQLLoaiSanPham extends Fragment {
          edtmaloai = view.findViewById(R.id.edtmaloailsp);
          edttenloai = view.findViewById(R.id.edttenloailsp);
         recyclerView = view.findViewById(R.id.rvQLLoaiSanPham);
-        floatingActionButton = view.findViewById(R.id.floatAdd);
         onclick();
         ongetlistdata();
 
@@ -78,7 +72,7 @@ public class FragmentQLLoaiSanPham extends Fragment {
                         if (task.isSuccessful()) {
                             QuerySnapshot querySnapshot = task.getResult();
                             for (QueryDocumentSnapshot doc : querySnapshot) {
-                                Loaisanpham lsp = new Loaisanpham();
+                                LoaiSanPham lsp = new LoaiSanPham();
 //                                lsp.setMaloai(Integer.parseInt(doc.get("maloai").toString()));
                                 lsp.setTenloai(doc.get("tenloai").toString());
                                 mlistlsp.add(lsp);

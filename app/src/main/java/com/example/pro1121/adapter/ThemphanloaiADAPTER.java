@@ -1,11 +1,8 @@
 package com.example.pro1121.adapter;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,17 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
-import com.example.pro1121.model.Loaisanpham;
+import com.example.pro1121.model.LoaiSanPham;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ThemphanloaiADAPTER extends RecyclerView.Adapter<ThemphanloaiADAPTER.Viewhoder> {
 
 
-    private List<Loaisanpham> mlist;
+    private List<LoaiSanPham> mlist;
 
-    public ThemphanloaiADAPTER( List<Loaisanpham> mlist) {
+    public ThemphanloaiADAPTER( List<LoaiSanPham> mlist) {
         this.mlist = mlist;
     }
 
@@ -36,7 +32,7 @@ public class ThemphanloaiADAPTER extends RecyclerView.Adapter<ThemphanloaiADAPTE
 
     @Override
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
-        Loaisanpham lsp = mlist.get(position);
+        LoaiSanPham lsp = mlist.get(position);
      holder.txtmaloai.setText("Mã loại: "+lsp.getMaloai());
      holder.txttenloai.setText("Tên loại:"+lsp.getTenloai());
 

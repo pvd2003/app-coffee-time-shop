@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
-import com.example.pro1121.adapter.DonhangADAPTER;
+import com.example.pro1121.adapter.DonHangAdapter;
 import com.example.pro1121.model.Donhang;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentQLDonHang extends Fragment {
-    private DonhangADAPTER mDonhangadater;
+    private DonHangAdapter mDonhangadater;
     private List<Donhang> mlist;
     RecyclerView recyclerView;
 
@@ -58,7 +58,7 @@ public class FragmentQLDonHang extends Fragment {
                     DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                             , DividerItemDecoration.VERTICAL);
                     recyclerView.addItemDecoration(dividerItemDecoration);
-                     mDonhangadater = new DonhangADAPTER(mlist);
+                     mDonhangadater = new DonHangAdapter(mlist);
                     recyclerView.setAdapter(mDonhangadater);
                 }
 

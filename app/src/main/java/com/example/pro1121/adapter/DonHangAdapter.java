@@ -13,10 +13,10 @@ import com.example.pro1121.model.Donhang;
 
 import java.util.List;
 
-public class DonhangADAPTER extends RecyclerView.Adapter<DonhangADAPTER.Viewhoder> {
+public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.Viewhoder> {
     private List<Donhang> list;
 
-    public DonhangADAPTER(List<Donhang> list) {
+    public DonHangAdapter(List<Donhang> list) {
         this.list = list;
     }
 

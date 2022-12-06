@@ -1,15 +1,12 @@
 package com.example.pro1121.fragments;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,21 +14,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
-import com.example.pro1121.adapter.SPADAPTER;
 import com.example.pro1121.adapter.SanphamADAPTER;
-import com.example.pro1121.adapter.ThemphanloaiADAPTER;
 import com.example.pro1121.model.ItemClick;
-import com.example.pro1121.model.Loaisanpham;
 import com.example.pro1121.model.Sanpham;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -74,7 +66,7 @@ public class FragmentQLSanPham extends Fragment {
             @Override
             public void onClick(View v) {
                 Map<String, Object> sanpham = new HashMap<>();
-                sanpham.put("tenloai", edttenloai.getText().toString());
+                sanpham.put("tensp", edttenloai.getText().toString());
                 sanpham.put("giatien", edtgiatien.getText().toString());
                 FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
                 final CollectionReference reference = firebaseFirestore.collection("sanpham");
@@ -113,7 +105,7 @@ public class FragmentQLSanPham extends Fragment {
                             QuerySnapshot querySnapshot = task.getResult();
                             for (QueryDocumentSnapshot doc : querySnapshot) {
                                 Sanpham sanpham = new Sanpham();
-                                sanpham.setTenloai(doc.get("tenloai").toString());
+                                sanpham.setTenSP(doc.get("tenloai").toString());
 //                             sanpham.setGiatien(doc.get("giatien").toString());
 
                                 sanphamList.add(sanpham);
@@ -127,7 +119,7 @@ public class FragmentQLSanPham extends Fragment {
                             sanphamADAPTER = new SanphamADAPTER(sanphamList, new ItemClick() {
                                 @Override
                                 public void onClickSanPham(Sanpham sanpham) {
-                                    edttenloai.setText(sanpham.getTenloai());
+                                    edttenloai.setText(sanpham.getTenSP());
                                     edtgiatien.setText(sanpham.getGiatien());
                                 }
                             });

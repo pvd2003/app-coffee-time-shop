@@ -1,23 +1,25 @@
 package com.example.pro1121.model;
 
-public class Sanpham {
-    private String tenloai;
+import java.io.Serializable;
+
+public class Sanpham implements Serializable {
+    private String tensp;
     private String giatien;
 
     public Sanpham() {
     }
 
-    public Sanpham(String tenloai, String giatien) {
-        this.tenloai = tenloai;
+    public Sanpham(String tensp, String giatien) {
+        this.tensp = tensp;
         this.giatien = giatien;
     }
 
-    public String getTenloai() {
-        return tenloai;
+    public String getTenSP() {
+        return tensp;
     }
 
-    public void setTenloai(String tenloai) {
-        this.tenloai = tenloai;
+    public void setTenSP(String tenloai) {
+        this.tensp = tensp;
     }
 
     public String getGiatien() {

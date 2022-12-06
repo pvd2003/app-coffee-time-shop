@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_margin="10dp"
-            android:text="Sản Phảm: Latte"/>
+            android:text="Sản Phẩm: Latte"/>
 
         <TextView
             android:layout_marginBottom="10dp"
@@ -62,5 +62,14 @@
             android:textSize="20dp"
             android:layout_margin="10dp"
             android:text="Số lượng: 2"/>
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:id="@+id/txtGiaSP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:text="Giá Tiền: 20000 VND"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

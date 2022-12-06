@@ -20,12 +20,23 @@
             android:background="#E1D2A5">
 
             <ImageView
-                android:id="@+id/titleSanPham"
+                android:id="@+id/sanpham"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/latte_m"
                 android:layout_gravity="center"/>
 
+            <ImageView
+                android:id="@+id/ivEdit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_edit"/>
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_delete"/>
 
         </LinearLayout>
 
@@ -33,7 +44,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tvtenloaisp"
+        android:id="@+id/tvtensp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"

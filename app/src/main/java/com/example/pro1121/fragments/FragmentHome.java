@@ -8,25 +8,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.pro1121.R;
-import com.example.pro1121.activities.CTSPCappuccinoActivity;
-import com.example.pro1121.activities.CTSPEspressoActivity;
-import com.example.pro1121.activities.CTSPLatteActivity;
 import com.example.pro1121.activities.OrderActivity;
 import com.example.pro1121.adapter.PhotoAdapter;
 import com.example.pro1121.adapter.SanphamADAPTER;
-import com.example.pro1121.adapter.ThemphanloaiADAPTER;
 import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Photo;
 import com.example.pro1121.model.Sanpham;
@@ -71,7 +65,7 @@ public class FragmentHome extends Fragment {
                     QuerySnapshot querySnapshot = task.getResult();
                     for (QueryDocumentSnapshot doc : querySnapshot) {
                         Sanpham sanpham = new Sanpham();
-                        sanpham.setTenloai(doc.get("tenloai").toString());
+                        sanpham.setTenSP(doc.get("tenloai").toString());
 //                                sanpham.setGiatien(doc.get("giatien").toString());
                         mlistsp.add(sanpham);
                     }
@@ -85,6 +79,7 @@ public class FragmentHome extends Fragment {
                         @Override
                         public void onClickSanPham(Sanpham sanpham) {
                             Intent intent = new Intent(getContext(),OrderActivity.class);
+                            intent.putExtra("chitietsanppham",sanpham);
                             startActivity(intent);
                         }
                     });

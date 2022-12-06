@@ -1,13 +1,13 @@
 package com.example.pro1121.model;
 
-public class Loaisanpham {
+public class LoaiSanPham {
     private  int maloai;
     private  String tenloai;
 
-    public Loaisanpham() {
+    public LoaiSanPham() {
     }
 
-    public Loaisanpham(int maloai, String tenloai) {
+    public LoaiSanPham(int maloai, String tenloai) {
         this.maloai = maloai;
         this.tenloai = tenloai;
     }
