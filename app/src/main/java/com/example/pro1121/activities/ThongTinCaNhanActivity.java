@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pro1121.R;
 
@@ -27,8 +28,19 @@ public class ThongTinCaNhanActivity extends AppCompatActivity {
         btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                NhapTTCN();
             }
         });
+    }
+
+    private void NhapTTCN(){
+        String tenTaiKhoan = edtTenTaiKhoan.getText().toString();
+        String sdt = edtSdt.getText().toString();
+        String diChi = edtDiaChi.getText().toString();
+
+
+        Toast.makeText(this, "xác nhận thành công", Toast.LENGTH_SHORT).show();
+
+
     }
 }
