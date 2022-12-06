@@ -58,13 +58,24 @@
 
                 <Button
                     android:layout_below="@id/btnhuy"
+                    android:id="@+id/btnSuai"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#963F0D"
+                    android:text="Sửa"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:layout_below="@id/btnhuy"
                     android:id="@+id/btnthemmoi"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:backgroundTint="#963F0D"
-                    android:text="Thêm mới"
+                    android:text="Thêm"
                     android:textSize="20sp" />
 
             </LinearLayout>

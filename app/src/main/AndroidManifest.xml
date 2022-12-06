@@ -44,13 +44,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.MenuActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".activities.ThuNganActivity"
             android:exported="false">
             <meta-data

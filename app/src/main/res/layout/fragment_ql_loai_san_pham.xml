@@ -58,13 +58,23 @@
                     android:textSize="20sp" />
 
                 <Button
+                    android:id="@+id/btnSualsp"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#963F0D"
+                    android:text="SỬa"
+                    android:textSize="20sp" />
+
+                <Button
                     android:id="@+id/btnthemmoilsp"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:backgroundTint="#963F0D"
-                    android:text="Thêm mới"
+                    android:text="Thêm"
                     android:textSize="20sp" />
             </LinearLayout>
 
