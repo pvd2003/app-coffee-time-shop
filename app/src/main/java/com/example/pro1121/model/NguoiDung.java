@@ -1,17 +1,8 @@
 package com.example.pro1121.model;
 
 public class NguoiDung {
-    private String idnguoidung;
     private String tennguoidung;
     private String sodienthoai;
-
-    public String getIdnguoidung() {
-        return idnguoidung;
-    }
-
-    public void setIdnguoidung(String idnguoidung) {
-        this.idnguoidung = idnguoidung;
-    }
 
     public String getTennguoidung() {
         return tennguoidung;
@@ -29,8 +20,7 @@ public class NguoiDung {
         this.sodienthoai = sodienthoai;
     }
 
-    public NguoiDung(String idnguoidung, String tennguoidung, String sodienthoai) {
-        this.idnguoidung = idnguoidung;
+    public NguoiDung( String tennguoidung, String sodienthoai) {
         this.tennguoidung = tennguoidung;
         this.sodienthoai = sodienthoai;
 
