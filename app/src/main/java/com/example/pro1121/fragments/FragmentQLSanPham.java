@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FragmentQLSanPham extends Fragment {
+ public class FragmentQLSanPham extends Fragment {
     EditText edttenloai, edtgiatien;
     ImageView ivtitle;
     RecyclerView recyclerView;
