@@ -45,7 +45,6 @@ public class FragmentHome extends Fragment {
     RecyclerView recyclerView;
 
 
-    @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -65,8 +64,8 @@ public class FragmentHome extends Fragment {
                     QuerySnapshot querySnapshot = task.getResult();
                     for (QueryDocumentSnapshot doc : querySnapshot) {
                         Sanpham sanpham = new Sanpham();
-                        sanpham.setTenSP(doc.get("tenloai").toString());
-//                                sanpham.setGiatien(doc.get("giatien").toString());
+                        sanpham.setTenSP(doc.get("tensanpham").toString());
+                        sanpham.setGiatien(doc.get("giasanpham").toString());
                         mlistsp.add(sanpham);
                     }
 

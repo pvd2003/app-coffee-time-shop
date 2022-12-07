@@ -24,7 +24,6 @@ import com.example.pro1121.fragments.FragmentDoanhThu;
 import com.example.pro1121.fragments.FragmentHome;
 import com.example.pro1121.fragments.FragmentQLDonHang;
 import com.example.pro1121.fragments.FragmentQLGioHang;
-import com.example.pro1121.fragments.FragmentQLLoaiSanPham;
 import com.example.pro1121.fragments.FragmentQLSanPham;
 import com.example.pro1121.fragments.FragmentQLTaiKhoan;
 import com.example.pro1121.fragments.FragmentTop10;
@@ -72,10 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.mQLSanPham:
                         fragment = new FragmentQLSanPham();
-                        break;
-
-                    case R.id.mQLLoaiSanPham:
-                        fragment = new FragmentQLLoaiSanPham();
                         break;
 
                     case R.id.mQLDonHang:

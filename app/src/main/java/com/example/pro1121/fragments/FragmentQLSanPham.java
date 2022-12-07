@@ -37,7 +37,6 @@ import java.util.Map;
 
  public class FragmentQLSanPham extends Fragment {
     EditText edttenloai, edtgiatien;
-    ImageView ivtitle;
     RecyclerView recyclerView;
     Button btnthem, btnhuy;
     private List<Sanpham> sanphamList;
@@ -50,7 +49,6 @@ import java.util.Map;
         View view = inflater.inflate(R.layout.fragment_ql_san_pham, container, false);
         edttenloai = view.findViewById(R.id.edttenloaisp);
         edtgiatien = view.findViewById(R.id.edtgiatiensp);
-        ivtitle = view.findViewById(R.id.titleSanPham);
         recyclerView = view.findViewById(R.id.rvQLSanPham);
         btnhuy = view.findViewById(R.id.btnhuy);
         btnthem = view.findViewById(R.id.btnthemmoi);
@@ -66,8 +64,8 @@ import java.util.Map;
             @Override
             public void onClick(View v) {
                 Map<String, Object> sanpham = new HashMap<>();
-                sanpham.put("tensp", edttenloai.getText().toString());
-                sanpham.put("giatien", edtgiatien.getText().toString());
+                sanpham.put("tensanpham", edttenloai.getText().toString());
+                sanpham.put("giasanpham", edtgiatien.getText().toString());
                 FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
                 final CollectionReference reference = firebaseFirestore.collection("sanpham");
                 reference.add(sanpham)
@@ -105,8 +103,8 @@ import java.util.Map;
                             QuerySnapshot querySnapshot = task.getResult();
                             for (QueryDocumentSnapshot doc : querySnapshot) {
                                 Sanpham sanpham = new Sanpham();
-                                sanpham.setTenSP(doc.get("tenloai").toString());
-//                             sanpham.setGiatien(doc.get("giatien").toString());
+                                sanpham.setTenSP(doc.get("tensanpham").toString());
+                             sanpham.setGiatien(doc.get("giasanpham").toString());
 
                                 sanphamList.add(sanpham);
 
