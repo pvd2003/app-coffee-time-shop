@@ -11,8 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -20,6 +22,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.pro1121.R;
+import com.example.pro1121.fragments.FragmentCaNhan;
 import com.example.pro1121.fragments.FragmentDoanhThu;
 import com.example.pro1121.fragments.FragmentHome;
 import com.example.pro1121.fragments.FragmentQLDonHang;
@@ -28,6 +31,8 @@ import com.example.pro1121.fragments.FragmentQLSanPham;
 import com.example.pro1121.fragments.FragmentQLTaiKhoan;
 import com.example.pro1121.fragments.FragmentTop10;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolBar;
@@ -69,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new FragmentQLGioHang();
                         break;
 
+                    case R.id.mCaNhan:
+                        fragment = new FragmentCaNhan();
+                        break;
+
                     case R.id.mQLSanPham:
                         fragment = new FragmentQLSanPham();
                         break;
@@ -87,11 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.mDoanhThu:
                         fragment = new FragmentDoanhThu();
-                        break;
-
-                    case R.id.mDoiMatKhau:
-                        // Dialog đổi mật khẩu
-                        showDialogDoiMatKhau();
                         break;
 
                     case R.id.mThoat:
@@ -113,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        closeFunction();
     }
 
     @Override
@@ -123,29 +129,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //
-    public void showDialogDoiMatKhau(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setNegativeButton("OK", null)
-                .setPositiveButton("Close",null);
-        LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_doi_mat_khau,null);
-        EditText etOldPass = view.findViewById(R.id.etOldPass);
-        EditText etNewPass = view.findViewById(R.id.etNewPass);
-        EditText etRePass = view.findViewById(R.id.etRePass);
+    private void closeFunction(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(!user.getDisplayName().equals("Admin")){
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.mQLSanPham).setVisible(false);
+            menu.findItem(R.id.mQLDonHang).setVisible(false);
+            menu.findItem(R.id.mQLTaiKhoan).setVisible(false);
+            menu.findItem(R.id.mDoanhThu).setVisible(false);
 
-        builder.setView(view);
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.setCancelable(false);
-        alertDialog.show();
-
-        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Successful", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        }
     }
+
+
 }

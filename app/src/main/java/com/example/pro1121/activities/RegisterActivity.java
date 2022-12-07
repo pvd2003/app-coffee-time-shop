@@ -3,6 +3,7 @@ package com.example.pro1121.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
     private TextView tvRegister, tvCancel;
     private FirebaseAuth auth;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -34,6 +36,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         tvRegister = findViewById(R.id.tvRegister);
         tvCancel = findViewById(R.id.tvCancel);
+
+        progressDialog = new ProgressDialog(this);
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,14 +69,15 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Vui lòng nhập password!", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        progressDialog.show();
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                progressDialog.dismiss();
                 if (task.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(RegisterActivity.this, ThongTinCaNhanActivity.class));
-                    return;
+                    finishAffinity();
                 } else {
                     Toast.makeText(RegisterActivity.this, "Tạo tài khoản không thành công", Toast.LENGTH_SHORT).show();
                 }

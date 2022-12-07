@@ -20,7 +20,7 @@
             android:padding="10dp">
 
             <EditText
-                android:id="@+id/edttenloaisp"
+                android:id="@+id/edtTenSP"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
@@ -30,8 +30,7 @@
                 android:textSize="25sp" />
 
             <EditText
-                android:layout_below="@id/edttenloaisp"
-                android:id="@+id/edtgiatiensp"
+                android:id="@+id/edtGiaSP"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:paddingLeft="15dp"
@@ -46,8 +45,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:layout_below="@id/edtgiatiensp"
-                    android:id="@+id/btnhuy"
+                    android:id="@+id/btnList"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
@@ -57,8 +55,7 @@
                     android:textSize="20sp" />
 
                 <Button
-                    android:layout_below="@id/btnhuy"
-                    android:id="@+id/btnSuai"
+                    android:id="@+id/btnUpdateSP"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
@@ -68,8 +65,7 @@
                     android:textSize="20sp" />
 
                 <Button
-                    android:layout_below="@id/btnhuy"
-                    android:id="@+id/btnthemmoi"
+                    android:id="@+id/btnAddSP"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
@@ -89,15 +85,5 @@
         android:layout_marginEnd="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/floatAdd"-->
-<!--        android:backgroundTint="#953F0D"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:src="@drawable/ic_add" />-->
 
 </LinearLayout>

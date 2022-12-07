@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.pro1121.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreenActivity extends AppCompatActivity {
     private TextView tvGetStarted;
@@ -19,6 +21,20 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     public void onGetStartedClick(View view) {
-        startActivity(new Intent(this, LoginActivity.class));
+        nextActivity();
+    }
+
+    private void nextActivity() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            //Chưa login
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
+
+        } else {
+            //Đã login
+            Intent intent = new Intent(this,ThongTinCaNhanActivity.class);
+            startActivity(intent);
+        }
     }
 }

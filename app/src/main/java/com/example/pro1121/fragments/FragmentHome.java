@@ -2,7 +2,6 @@ package com.example.pro1121.fragments;
 
 
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,7 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.pro1121.R;
 import com.example.pro1121.activities.OrderActivity;
 import com.example.pro1121.adapter.PhotoAdapter;
-import com.example.pro1121.adapter.SanphamADAPTER;
+import com.example.pro1121.adapter.SanPhamHomeAdapter;
 import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Photo;
 import com.example.pro1121.model.Sanpham;
@@ -41,7 +40,7 @@ public class FragmentHome extends Fragment {
     private CircleIndicator circleIndicator;
     private PhotoAdapter adapter;
     List<Sanpham> mlistsp;
-   private SanphamADAPTER msanphamaapter;
+   private SanPhamHomeAdapter msanphamaapter;
     RecyclerView recyclerView;
 
 
@@ -74,7 +73,7 @@ public class FragmentHome extends Fragment {
                     DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                             , DividerItemDecoration.VERTICAL);
                     recyclerView.addItemDecoration(dividerItemDecoration);
-                    msanphamaapter = new SanphamADAPTER(mlistsp, new ItemClick() {
+                    msanphamaapter = new SanPhamHomeAdapter(mlistsp, new ItemClick() {
                         @Override
                         public void onClickSanPham(Sanpham sanpham) {
                             Intent intent = new Intent(getContext(),OrderActivity.class);

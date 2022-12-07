@@ -6,6 +6,92 @@
     android:background="#FFF7EE"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/header_fragment"
+        android:fontFamily="@font/baloo2_medium"
+        android:gravity="center"
+        android:text="Thông Tin Cá Nhân"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Họ và tên:"
+        android:paddingLeft="15dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/tvTenNguoiDung"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_button_corner_5"
+        android:hint="Họ và tên"
+        android:paddingLeft="15dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Email:"
+        android:paddingLeft="15dp"
+        android:textSize="25sp" />
+
+
+    <TextView
+        android:id="@+id/tvEmailNguoiDung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_button_corner_5"
+        android:padding="10dp"
+        android:hint="Email"
+        android:paddingLeft="15dp"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:padding="10dp"
+            android:id="@+id/btnupdateNguoiDung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo2_medium"
+            android:layout_marginBottom="10dp"
+            android:background="#C0C0C0"
+            android:drawableLeft="@drawable/ic_update_ca_nhan"
+            android:drawablePadding="10dp"
+            android:text="Cập Nhật Thông Tin"
+            android:textSize="20sp" />
+
+        <TextView
+            android:padding="10dp"
+            android:id="@+id/btnDoiMatKhau"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo2_medium"
+            android:background="#C0C0C0"
+            android:drawableLeft="@drawable/ic_vpn_key"
+            android:drawablePadding="10dp"
+            android:text="Đổi mật khẩu"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+
+
 
 
 </LinearLayout>

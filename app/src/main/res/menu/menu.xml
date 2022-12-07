@@ -41,9 +41,10 @@
     <item android:title="Người dùng">
         <menu>
             <item
-                android:id="@+id/mDoiMatKhau"
-                android:icon="@drawable/ic_vpn_key"
-                android:title="Đổi mật khẩu" />
+                android:id="@+id/mCaNhan"
+                android:icon="@drawable/ic_ca_nhan"
+                android:title="Tài khoản" />
+
 
             <item
                 android:id="@+id/mThoat"

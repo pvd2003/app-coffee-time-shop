@@ -29,25 +29,18 @@
         android:paddingLeft="15dp"
         android:textSize="25sp" />
 
+
     <EditText
-        android:id="@+id/edtSdt"
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_et"
-        android:hint="Số điện thoại"
+        android:hint="Email"
+        android:editable="false"
         android:paddingLeft="15dp"
         android:textSize="25sp" />
 
-    <EditText
-        android:id="@+id/edtDiaChi"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/custom_et"
-        android:hint="Địa chỉ"
-        android:paddingLeft="15dp"
-        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/btnXacNhan"
