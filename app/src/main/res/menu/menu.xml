@@ -15,11 +15,6 @@
         android:title="Quản lý sản phẩm" />
 
     <item
-        android:id="@+id/mQLLoaiSanPham"
-        android:icon="@drawable/ic_assignment"
-        android:title="Quản lý loại sản phẩm" />
-
-    <item
         android:id="@+id/mQLDonHang"
         android:icon="@drawable/ic_event_note"
         android:title="Quản lý đơn hàng" />
