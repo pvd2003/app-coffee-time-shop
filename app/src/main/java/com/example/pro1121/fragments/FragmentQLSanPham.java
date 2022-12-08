@@ -55,6 +55,7 @@ import java.util.Map;
         btnList = view.findViewById(R.id.btnList);
         btnAddSP = view.findViewById(R.id.btnAddSP);
         btnUpdateSP = view.findViewById(R.id.btnUpdateSP);
+        getlistdatafirebasestore();
 
             btnAddSP.setOnClickListener(new View.OnClickListener() {
                 @Override

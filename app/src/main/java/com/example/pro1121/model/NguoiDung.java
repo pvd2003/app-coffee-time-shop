@@ -2,7 +2,7 @@ package com.example.pro1121.model;
 
 public class NguoiDung {
     private String tennguoidung;
-    private String sodienthoai;
+    private String email;
 
     public String getTennguoidung() {
         return tennguoidung;
@@ -12,17 +12,17 @@ public class NguoiDung {
         this.tennguoidung = tennguoidung;
     }
 
-    public String getSodienthoai() {
-        return sodienthoai;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSodienthoai(String sodienthoai) {
-        this.sodienthoai = sodienthoai;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public NguoiDung( String tennguoidung, String sodienthoai) {
+    public NguoiDung(String tennguoidung, String email) {
         this.tennguoidung = tennguoidung;
-        this.sodienthoai = sodienthoai;
+        this.email = email;
 
 
     }
