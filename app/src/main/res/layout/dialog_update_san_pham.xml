@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFF7EE"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FDA776"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/edtTenSPDialog"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/custom_et"
+                android:hint="Tên Sản Phẩm"
+                android:paddingLeft="15dp"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/edtGiaSPDialog"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="15dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/custom_et"
+                android:hint="Giá tiền"
+                android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/btnUpdateSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="#963F0D"
+                    android:text="Sửa"
+                    android:textSize="20sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

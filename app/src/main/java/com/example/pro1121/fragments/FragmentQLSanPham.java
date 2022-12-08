@@ -56,81 +56,117 @@ import java.util.Map;
         btnAddSP = view.findViewById(R.id.btnAddSP);
         btnUpdateSP = view.findViewById(R.id.btnUpdateSP);
 
-        onClickAdd();
-        getlistdatafirebasestore();
+            btnAddSP.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickAdd();
+                }
+            });
+
+        btnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getlistdatafirebasestore();
+            }
+        });
+
+        btnUpdateSP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickUpdate();
+            }
+        });
+
+
         return view;
 
     }
 
-    private void onClickAdd() {
-        btnAddSP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Map<String, Object> sanpham = new HashMap<>();
-                sanpham.put("tensanpham", edtTenSP.getText().toString());
-                sanpham.put("giasanpham", edtGiaSP.getText().toString());
-                FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-                final CollectionReference reference = firebaseFirestore.collection("sanpham");
-                reference.add(sanpham)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(getContext(), "add thành công!", Toast.LENGTH_SHORT).show();
+     private void onClickAdd() {
+         Map<String, Object> sanpham = new HashMap<>();
+         sanpham.put("tensanpham", edtTenSP.getText().toString());
+         sanpham.put("giasanpham", edtGiaSP.getText().toString());
+         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+         final CollectionReference reference = firebaseFirestore.collection("sanpham");
+         reference.add(sanpham)
+                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                     @Override
+                     public void onSuccess(DocumentReference documentReference) {
+                         Toast.makeText(getContext(), "add thành công!", Toast.LENGTH_SHORT).show();
+                         edtTenSP.setText("");
+                         edtGiaSP.setText("");
+                     }
+                 }).addOnFailureListener(new OnFailureListener() {
+                     @Override
+                     public void onFailure(@NonNull Exception e) {
+                         Toast.makeText(getContext(), "add thất bại!", Toast.LENGTH_SHORT).show();
 
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getContext(), "add thất bại!", Toast.LENGTH_SHORT).show();
-
-                            }
-                        });
-
-            }
-        });
-
+                     }
+                 });
+    }
+    //Chua Sua Xong
+    private void onClickUpdate(){
+        HashMap<String, Object> map = new HashMap<>();
+        String name = edtTenSP.getText().toString();
+        String price = edtGiaSP.getText().toString();
+        map.put("tensanpham", name);
+        map.put("giasanpham", price);
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        final CollectionReference reference = firebaseFirestore.collection("sanpham");
+        DocumentReference docR = reference.document(String.valueOf(map));
+        docR
+                .update("tensanpham",name,"giasanpham",price)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getContext(), "sửa thành công!", Toast.LENGTH_SHORT).show();
+                        edtTenSP.setText("");
+                        edtGiaSP.setText("");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(), "sửa thất bại!", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
     }
 
     public void getlistdatafirebasestore() {
-        btnList.setOnClickListener(new View.OnClickListener() {
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        final CollectionReference reference = firebaseFirestore.collection("sanpham");
+        reference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onClick(View v) {
-                FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-                final CollectionReference reference = firebaseFirestore.collection("sanpham");
-                reference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        sanphamList = new ArrayList<>();
-                        if (task.isSuccessful()) {
-                            QuerySnapshot querySnapshot = task.getResult();
-                            for (QueryDocumentSnapshot doc : querySnapshot) {
-                                Sanpham sanpham = new Sanpham();
-                                sanpham.setTenSP(doc.get("tensanpham").toString());
-                                sanpham.setGiatien(doc.get("giasanpham").toString());
-                                sanpham.setIdsanpham(doc.getId());
-                                sanphamList.add(sanpham);
-
-                            }
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-                            recyclerView.setLayoutManager(linearLayoutManager);
-                            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
-                                    , DividerItemDecoration.VERTICAL);
-                            recyclerView.addItemDecoration(dividerItemDecoration);
-                            quanLySanPhamAdapter = new QuanLySanPhamAdapter(sanphamList, new ItemClick() {
-                                @Override
-                                public void onClickSanPham(Sanpham sanpham) {
-                                    edtTenSP.setText(sanpham.getTenSP());
-                                    edtGiaSP.setText(sanpham.getGiatien());
-                                }
-                            });
-                            recyclerView.setAdapter(quanLySanPhamAdapter);
-                        }
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                sanphamList = new ArrayList<>();
+                if (task.isSuccessful()) {
+                    QuerySnapshot querySnapshot = task.getResult();
+                    for (QueryDocumentSnapshot doc : querySnapshot) {
+                        Sanpham sanpham = new Sanpham();
+                        sanpham.setTenSP(doc.get("tensanpham").toString());
+                        sanpham.setGiatien(doc.get("giasanpham").toString());
+                        sanpham.setIdsanpham(doc.getId());
+                        sanphamList.add(sanpham);
 
                     }
-                });
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                    recyclerView.setLayoutManager(linearLayoutManager);
+                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
+                            , DividerItemDecoration.VERTICAL);
+                    recyclerView.addItemDecoration(dividerItemDecoration);
+                    quanLySanPhamAdapter = new QuanLySanPhamAdapter(sanphamList, new ItemClick() {
+                        @Override
+                        public void onClickSanPham(Sanpham sanpham) {
+                            edtTenSP.setText(sanpham.getTenSP());
+                            edtGiaSP.setText(sanpham.getGiatien());
+                        }
+                    });
+                    recyclerView.setAdapter(quanLySanPhamAdapter);
+                }
+
             }
         });
+
     }
 }
 

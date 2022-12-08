@@ -1,5 +1,6 @@
 package com.example.pro1121.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +28,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 public class FragmentCaNhan extends Fragment {
 
     private TextView tvTenNguoiDung, tvEmailNguoiDung, btnupdateNguoiDung, btnDoiMatKhau;
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -37,6 +39,7 @@ public class FragmentCaNhan extends Fragment {
         tvTenNguoiDung = view.findViewById(R.id.tvTenNguoiDung);
         tvEmailNguoiDung = view.findViewById(R.id.tvEmailNguoiDung);
         btnDoiMatKhau = view.findViewById(R.id.btnDoiMatKhau);
+        progressDialog = new ProgressDialog(getActivity());
 
         showUserInformation();
 
@@ -76,6 +79,7 @@ public class FragmentCaNhan extends Fragment {
         tvEmailNguoiDung.setText(email);
     }
 
+    //Hiện dialog update Thông tin cá nhân
     private void showDialogUpdateUser(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                 .setNegativeButton("OK", null)
@@ -88,17 +92,13 @@ public class FragmentCaNhan extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user == null){
             return;
+        }if(user.getDisplayName().equals("Admin")){
+            Toast.makeText(getContext(), "Không thể thay đổi tên admin", Toast.LENGTH_SHORT).show();
+            edtTenUser.setEnabled(false);
         }
         String name = user.getDisplayName();
         String email = user.getEmail();
-
-        if(name == null){
-            edtTenUser.setVisibility(View.GONE);
-        }else{
-            edtTenUser.setVisibility(View.VISIBLE);
-            edtTenUser.setText(name);
-        }
-
+        edtTenUser.setText(name);
         edtEmailUser.setText(email);
 
         builder.setView(view);
@@ -132,15 +132,14 @@ public class FragmentCaNhan extends Fragment {
         });
     }
 
+    //Hiện dialog đổi mật khẩu
     public void showDialogDoiMatKhau(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                 .setNegativeButton("OK", null)
                 .setPositiveButton("Close",null);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_doi_mat_khau,null);
-        EditText etOldPass = view.findViewById(R.id.etOldPass);
         EditText etNewPass = view.findViewById(R.id.etNewPass);
-        EditText etRePass = view.findViewById(R.id.etRePass);
 
         builder.setView(view);
 
@@ -151,9 +150,24 @@ public class FragmentCaNhan extends Fragment {
         alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String newpass = etNewPass.getText().toString().trim();
+                progressDialog.show();
                 Toast.makeText(getContext(), "Successful", Toast.LENGTH_SHORT).show();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                user.updatePassword(newpass)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getActivity(), "cập nhật mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+                                }
+                            }
+                        });
             }
         });
 
     }
+
+
 }

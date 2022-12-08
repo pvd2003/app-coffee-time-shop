@@ -66,10 +66,20 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
          }
      });
 
+//     holder.imgUpdate.setOnClickListener(new View.OnClickListener() {
+//         @Override
+//         public void onClick(View v) {
+//             AlertDialog.Builder builder = new AlertDialog.Builder(mfragmentQLSanPham.getContext())
+//                     .setNegativeButton("OK", null)
+//                     .setPositiveButton("Close",null);
+//             LayoutInflater inflater = holder.;
+//             View view = inflater.inflate(R.layout.dialog_update_san_pham,null);
+//         }
+//     });
+
      holder.imgDelete.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             Sanpham sanpham = mlist.get(holder.getAdapterPosition());
              AlertDialog.Builder builder = new AlertDialog.Builder(holder.tvTenSP.getContext());
              builder.setTitle("Bạn có chắc không?");
 
@@ -78,7 +88,7 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
                  public void onClick(DialogInterface dialog, int which) {
                      FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
                      final CollectionReference reference = firebaseFirestore.collection("sanpham");
-                     reference.document(sanpham.getIdsanpham())
+                     reference.document(sp.getIdsanpham())
                              .delete()
                              .addOnSuccessListener(new OnSuccessListener<Void>() {
                          @Override
@@ -115,13 +125,14 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
     public class Viewhoder extends RecyclerView.ViewHolder {
       TextView tvTenSP, tvGiaTien;
       LinearLayout linearSanPham;
-      ImageView imgDelete;
+      ImageView imgDelete, imgUpdate;
 
         public Viewhoder(@NonNull View view) {
             super(view);
             tvTenSP= view.findViewById(R.id.tvTenSP);
             tvGiaTien= view.findViewById(R.id.tvGiaTien);
             imgDelete = view.findViewById(R.id.imgDelete);
+            imgUpdate = view.findViewById(R.id.imgUpdate);
             linearSanPham = view.findViewById(R.id.linearSanPham);
 
         }
