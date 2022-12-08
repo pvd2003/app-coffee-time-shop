@@ -1,6 +1,7 @@
 package com.example.pro1121.activities;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,10 +21,16 @@ import android.widget.Toast;
 import com.example.pro1121.R;
 import com.example.pro1121.model.GioHang;
 import com.example.pro1121.model.Sanpham;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OrderActivity extends AppCompatActivity {
     TextView tvTilteSP,tvPriceSP,tvThemSL,tvGiamSl,tvNumber, btnBuyNow;
@@ -31,7 +38,7 @@ public class OrderActivity extends AppCompatActivity {
     List<GioHang> listGioHang;
     Sanpham sanpham;
 
-    int number=1;
+    int number= 1;
 //   double tongtien;
 //    int soluong;
 //    int madonhang = 1;
@@ -88,8 +95,30 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void onClickAddGioHang(){
-//        int soluong = Integer.parseInt(tvNumber.getText().toString());
-//        long gia = Long.parseLong(sanpham.getGiatien()) * soluong;
+        String tensp = tvTilteSP.getText().toString();
+        String giaSP = tvPriceSP.getText().toString();
+        int soluong = Integer.parseInt(tvNumber.getText().toString());
+//     long gia = Long.parseLong(sanpham.getGiatien()) * soluong;
+        Map<String, Object> giohang = new HashMap<>();
+        giohang.put("soluong",soluong);
+        giohang.put("gia", giaSP);
+        giohang.put("tensanpham",tensp);
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        final CollectionReference reference = firebaseFirestore.collection("giohang");
+        reference.add(giohang)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(OrderActivity.this, "add thành công!", Toast.LENGTH_SHORT).show();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(OrderActivity.this, "add thất bại!", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
 //        HashMap<String,Object> data = new HashMap<>();
 //        data.put("tentaikhoan",tv)
         Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
