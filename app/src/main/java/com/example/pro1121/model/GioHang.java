@@ -1,43 +1,43 @@
 package com.example.pro1121.model;
 
 public class GioHang {
-    private String idSanPham;
-    private String tenSanPham;
-    private String giaSanPham;
-    private String SoLuong;
+    private String idgiohang;
+    private String tensp;
+    private String giasp;
+    private String soluong;
 
     public GioHang() {
     }
 
-    public String getIdSanPham() {
-        return idSanPham;
+    public String getIdgiohang() {
+        return idgiohang;
     }
 
-    public void setIdSanPham(String idSanPham) {
-        this.idSanPham = idSanPham;
+    public void setIdgiohang(String idgiohang) {
+        this.idgiohang = idgiohang;
     }
 
-    public String getTenSanPham() {
-        return tenSanPham;
+    public String getTensp() {
+        return tensp;
     }
 
-    public void setTenSanPham(String tenSanPham) {
-        this.tenSanPham = tenSanPham;
+    public void setTensp(String tensp) {
+        this.tensp = tensp;
     }
 
-    public String getGiaSanPham() {
-        return giaSanPham;
+    public String getGiasp() {
+        return giasp;
     }
 
-    public void setGiaSanPham(String giaSanPham) {
-        this.giaSanPham = giaSanPham;
+    public void setGiasp(String giasp) {
+        this.giasp = giasp;
     }
 
-    public String getSoLuong() {
-        return SoLuong;
+    public String getSoluong() {
+        return soluong;
     }
 
-    public void setSoLuong(String soLuong) {
-        SoLuong = soLuong;
+    public void setSoluong(String soluong) {
+        this.soluong = soluong;
     }
 }

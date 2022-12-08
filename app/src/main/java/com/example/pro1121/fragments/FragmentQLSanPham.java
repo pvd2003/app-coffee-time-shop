@@ -73,7 +73,7 @@ import java.util.Map;
         btnUpdateSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickUpdate();
+//                onClickUpdate();
             }
         });
 
