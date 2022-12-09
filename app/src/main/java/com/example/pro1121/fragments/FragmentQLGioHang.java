@@ -40,7 +40,6 @@ public class FragmentQLGioHang extends Fragment {
         tvThanhTien = view.findViewById(R.id.tvThanhTien);
         btnThanhToan = view.findViewById(R.id.btnThanhToan);
 
-        tvThanhTien.setText((int) getTotalPrice(gioHangList));
 
 
 
