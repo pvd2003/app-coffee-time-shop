@@ -2,7 +2,6 @@ package com.example.pro1121.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -11,15 +10,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.example.pro1121.R;
 import com.example.pro1121.fragments.FragmentCaNhan;
@@ -28,7 +22,7 @@ import com.example.pro1121.fragments.FragmentHome;
 import com.example.pro1121.fragments.FragmentQLDonHang;
 import com.example.pro1121.fragments.FragmentQLGioHang;
 import com.example.pro1121.fragments.FragmentQLSanPham;
-import com.example.pro1121.fragments.FragmentQLTaiKhoan;
+import com.example.pro1121.fragments.FragmentQLLoaiSanPham;
 import com.example.pro1121.fragments.FragmentTop10;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -86,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new FragmentQLDonHang();
                         break;
 
-                    case R.id.mQLTaiKhoan:
-                        fragment = new FragmentQLTaiKhoan();
+                    case R.id.mQLLoaiSanPham:
+                        fragment = new FragmentQLLoaiSanPham();
                         break;
 
                     case R.id.mTop10:
@@ -135,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mQLSanPham).setVisible(false);
             menu.findItem(R.id.mQLDonHang).setVisible(false);
-            menu.findItem(R.id.mQLTaiKhoan).setVisible(false);
+            menu.findItem(R.id.mQLLoaiSanPham).setVisible(false);
             menu.findItem(R.id.mDoanhThu).setVisible(false);
 
         }

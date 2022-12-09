@@ -136,7 +136,9 @@ import java.util.Map;
     public void getlistdatafirebasestore() {
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         final CollectionReference reference = firebaseFirestore.collection("sanpham");
-        reference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        reference
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 sanphamList = new ArrayList<>();

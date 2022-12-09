@@ -4,25 +4,16 @@ public class GioHang {
     private String tensp;
     private String giasp;
     private String soluong;
-    private int tongsp;
 
     public GioHang() {
     }
 
-    public GioHang(String tensp, String giasp, String soluong, int tongsp) {
+    public GioHang(String tensp, String giasp, String soluong) {
         this.tensp = tensp;
         this.giasp = giasp;
         this.soluong = soluong;
-        this.tongsp = tongsp;
     }
 
-    public long getTongsp() {
-        return tongsp ;
-    }
-
-    public void setTongsp(int tongsp) {
-        this.tongsp = tongsp;
-    }
 
     public String getTensp() {
         return tensp;

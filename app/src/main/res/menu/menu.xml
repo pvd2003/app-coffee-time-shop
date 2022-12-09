@@ -20,9 +20,9 @@
         android:title="Quản lý đơn hàng" />
 
     <item
-        android:id="@+id/mQLTaiKhoan"
+        android:id="@+id/mQLLoaiSanPham"
         android:icon="@drawable/ic_person"
-        android:title="Quản lý tài khoản" />
+        android:title="Quản lý loại sản phẩm" />
 
     <item android:title="Thống kê">
         <menu>

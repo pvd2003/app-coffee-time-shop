@@ -56,7 +56,7 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
         Sanpham sp = mlist.get(position);
      holder.tvTenSP.setText("Tên sản phẩm: " + sp.getTenSP());
-     holder.tvGiaTien.setText("Giá tiền: " + sp.getGiatien());
+     holder.tvGiaTien.setText("Giá tiền: " + sp.getGiatien() );
 
      holder.linearSanPham.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -138,41 +138,4 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
         }
         //
     }
-
-//    public void readData(){
-//        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-//        final CollectionReference reference = firebaseFirestore.collection("sanpham")
-//                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        mlist = new ArrayList<>();
-//                        if (task.isSuccessful()) {
-//                            QuerySnapshot querySnapshot = task.getResult();
-//                            for (QueryDocumentSnapshot doc : querySnapshot) {
-//                                Map<String, Object> sanpham = new HashMap<>();
-//                                sanpham.put("tensanpham", tvTenSP.getText().toString());
-//                                sanpham.put("giasanpham", tvGiaTien.getText().toString());
-//                                Sanpham sanpham1 = new Sanpham()
-//
-//                                sanphamList.add(sanpham);
-//
-//                            }
-//                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-//                            recyclerView.setLayoutManager(linearLayoutManager);
-//                            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
-//                                    , DividerItemDecoration.VERTICAL);
-//                            recyclerView.addItemDecoration(dividerItemDecoration);
-//                            quanLySanPhamAdapter = new QuanLySanPhamAdapter(sanphamList, new ItemClick() {
-//                                @Override
-//                                public void onClickSanPham(Sanpham sanpham) {
-//                                    edtTenSP.setText(sanpham.getTenSP());
-//                                    edtGiaSP.setText(sanpham.getGiatien());
-//                                }
-//                            });
-//                            recyclerView.setAdapter(quanLySanPhamAdapter);
-//                        }
-//                    }
-//                })
-//
-//    }
 }

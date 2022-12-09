@@ -37,8 +37,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.Viewhode
         GioHang gioHang = donhangList.get(position);
         holder.tvTenSanPham.setText(gioHang.getTensp());
         holder.tvGiaTien.setText(gioHang.getGiasp()+ "VND");
-        holder.tvSoLuong.setText(gioHang.getSoluong());
-        holder.tvTongSP.setText((int) gioHang.getTongsp() + "VND");
+        holder.tvSoLuong.setText("Số lượng: " + gioHang.getSoluong());
 
     }
 
@@ -48,7 +47,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.Viewhode
     }
 
     public class Viewhoder extends RecyclerView.ViewHolder {
-      TextView tvTenSanPham, tvGiaTien, tvSoLuong,tvTongSP;
+      TextView tvTenSanPham, tvGiaTien, tvSoLuong, tvTongSP;
       ImageView imgDelete;
 
         public Viewhoder(@NonNull View view) {
@@ -56,7 +55,6 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.Viewhode
             tvTenSanPham= view.findViewById(R.id.tvTenSanPham);
             tvGiaTien= view.findViewById(R.id.tvGiaTien);
             tvSoLuong= view.findViewById(R.id.tvSoLuong);
-            tvTongSP= view.findViewById(R.id.tvTongSP);
             imgDelete = view.findViewById(R.id.imgDelete);
 
         }

@@ -58,7 +58,7 @@ public class OrderActivity extends AppCompatActivity {
 
         Sanpham sanpham = (Sanpham) getIntent().getSerializableExtra("chitietsanppham");
         tvTilteSP.setText(sanpham.getTenSP());
-        tvPriceSP.setText("Giá tiền: " + sanpham.getGiatien());
+        tvPriceSP.setText(sanpham.getGiatien());
 
         tvThemSL.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,8 +97,7 @@ public class OrderActivity extends AppCompatActivity {
     private void onClickAddGioHang(){
         String tensp = tvTilteSP.getText().toString();
         String giaSP = tvPriceSP.getText().toString();
-        int soluong = Integer.parseInt(tvNumber.getText().toString());
-//     long gia = Long.parseLong(sanpham.getGiatien()) * soluong;
+        String soluong = tvNumber.getText().toString();
         Map<String, Object> giohang = new HashMap<>();
         giohang.put("soluong",soluong);
         giohang.put("gia", giaSP);
@@ -120,36 +119,9 @@ public class OrderActivity extends AppCompatActivity {
 
                     }
                 });
-//        HashMap<String,Object> data = new HashMap<>();
-//        data.put("tentaikhoan",tv)
-        Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
     }
 
 }
 
-
-
-//    onClickluong = Integer.parseInt(txtnumber.getText().toString());
-//         tongtien=(soluong * 3.50);
-//         String ten = txtten.getText().toString();
-//
-//
-//
-//
-//
-//        txtbuynow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplication(), TTDonhangActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putString("ten",ten);
-//                bundle.putInt("soluong",soluong);
-//                bundle.putDouble("tien",tongtien);
-//                bundle.putInt("madonhang",madonhang);
-//                intent.putExtra("dulieu",bundle);
-//                startActivity(intent);
-//
-//            }
-//        });
 
 
