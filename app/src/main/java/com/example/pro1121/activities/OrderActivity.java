@@ -110,6 +110,7 @@ public class OrderActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(OrderActivity.this, "add thành công!", Toast.LENGTH_SHORT).show();
+                        finish();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {

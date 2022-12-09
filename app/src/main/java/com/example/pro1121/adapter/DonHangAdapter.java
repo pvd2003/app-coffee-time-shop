@@ -44,7 +44,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.Viewhode
     }
 
     public class  Viewhoder extends RecyclerView.ViewHolder {
-        TextView txtmadon,txtemail,txttentk,txtsoluong,txttensp;
+        TextView txtmadon,txtemail,txttentk,txtsoluong,txttensp, tvTongSP;
         public Viewhoder(@NonNull View itemView) {
             super(itemView);
             txtmadon = itemView.findViewById(R.id.txtMaDonHang);
@@ -52,6 +52,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.Viewhode
             txttentk = itemView.findViewById(R.id.txtTenTaiKhoan);
             txtsoluong = itemView.findViewById(R.id.txtSoLuong);
             txttensp = itemView.findViewById(R.id.txtTenSP);
+            tvTongSP = itemView.findViewById(R.id.txtTenSP);
 
         }
     }

@@ -1,20 +1,27 @@
 package com.example.pro1121.model;
 
 public class GioHang {
-    private String idgiohang;
     private String tensp;
     private String giasp;
     private String soluong;
+    private int tongsp;
 
     public GioHang() {
     }
 
-    public String getIdgiohang() {
-        return idgiohang;
+    public GioHang(String tensp, String giasp, String soluong, int tongsp) {
+        this.tensp = tensp;
+        this.giasp = giasp;
+        this.soluong = soluong;
+        this.tongsp = tongsp;
     }
 
-    public void setIdgiohang(String idgiohang) {
-        this.idgiohang = idgiohang;
+    public long getTongsp() {
+        return tongsp ;
+    }
+
+    public void setTongsp(int tongsp) {
+        this.tongsp = tongsp;
     }
 
     public String getTensp() {
