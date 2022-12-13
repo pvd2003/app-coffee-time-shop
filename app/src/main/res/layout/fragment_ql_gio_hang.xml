@@ -9,9 +9,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvQLGioHang"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/linear"/>
 
         <LinearLayout
+            android:id="@+id/linear"
             android:layout_toLeftOf="@id/btnThanhToan"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
@@ -31,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo2_medium"
-                android:text="2000vnd"
+                android:text="2000 vnd"
                 android:textSize="20dp" />
 
         </LinearLayout>

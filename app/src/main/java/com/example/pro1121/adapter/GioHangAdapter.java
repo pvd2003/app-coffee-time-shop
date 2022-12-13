@@ -36,12 +36,13 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.Viewhode
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
         GioHang gioHang = donhangList.get(position);
         holder.tvTenSanPham.setText(gioHang.getTensp());
-        holder.tvGiaTien.setText(gioHang.getGiasp()+ "VND");
+        holder.tvGiaTien.setText(gioHang.getGiasp());
         holder.tvSoLuong.setText("Số lượng: " + gioHang.getSoluong());
-//        int gia = Integer.parseInt(gioHang.getGiasp());
-//        int soluong = Integer.parseInt(gioHang.getSoluong());
-//        int tong = gia  * soluong;
-//        holder.tvTongSP.setText(tong);
+        int gia = Integer.parseInt(gioHang.getGiasp());
+        int soluong = Integer.parseInt(gioHang.getSoluong());
+        int tong = gia * soluong;
+        holder.tvTongSP.setText("Tổng: " + tong);
+
 
     }
 

@@ -63,7 +63,7 @@ public class OrderActivity extends AppCompatActivity {
         tvThemSL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int soluong = Integer.parseInt(tvNumber.getText().toString());
+//                int soluong = Integer.parseInt(tvNumber.getText().toString());
                 number=number+1;
                 tvNumber.setText(String.valueOf(number));
             }

@@ -1,6 +1,8 @@
 package com.example.pro1121.fragments;
 
+import android.content.BroadcastReceiver;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentQLGioHang extends Fragment {
-    private TextView tvThanhTien,btnThanhToan;
+    TextView tvThanhTien,btnThanhToan;
     List<GioHang> gioHangList;
     GioHangAdapter adapter;
     RecyclerView recyclerView;
@@ -40,9 +42,8 @@ public class FragmentQLGioHang extends Fragment {
         tvThanhTien = view.findViewById(R.id.tvThanhTien);
         btnThanhToan = view.findViewById(R.id.btnThanhToan);
 
-
-
-
+        getlistdatafirebasestore();
+        tongTien();
 
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +52,7 @@ public class FragmentQLGioHang extends Fragment {
             }
         });
 
-        getlistdatafirebasestore();
+
         return view;
     }
 
@@ -71,6 +72,7 @@ public class FragmentQLGioHang extends Fragment {
                         gioHang.setTensp(doc.getString("tensanpham"));
                         gioHang.setGiasp(doc.getString("gia"));
                         gioHang.setSoluong(doc.getString("soluong"));
+                        gioHang.setIdgiohang(doc.getId());
                         gioHangList.add(gioHang);
 
                     }
@@ -88,14 +90,59 @@ public class FragmentQLGioHang extends Fragment {
 
     }
 
-    public static long getTotalPrice(List<GioHang> list){
-        int tongTien = 0;
-        for(int i =0;i<list.size();i++){
-            GioHang gioHang = list.get(i);
-            int sl = Integer.parseInt(gioHang.getSoluong());
-            int gia = Integer.parseInt(gioHang.getSoluong());
-            tongTien += sl * gia;
+    private void tongTien(){
+        int tong = 0;
+        gioHangList = new ArrayList<>();
+        for(int i = 0; i < gioHangList.size(); i++){
+            GioHang gioHang = (GioHang) gioHangList.get(i);
+            int soluong = Integer.parseInt(gioHang.getSoluong());
+            int gia = Integer.parseInt(gioHang.getGiasp());
+            tong = tong + (soluong * gia);
         }
-        return tongTien;
+        tvThanhTien.setText(tong +" VND");
     }
+
+//    private BroadcastReceiver thanhtoanreceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            Long tongThanhToan = intent.getLongExtra("result", 0);
+//            ArrayIdSach = (ArrayList<String>) intent.getSerializableExtra("ArrayIdSach");
+//            if (ArrayIdSach != null) {
+//                txtXoa.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        for (int i = 0; i < ArrayIdSach.size(); i++) {
+//                            db.collection("giohang")
+//                                    .document(id + ArrayIdSach.get(i))
+//                                    .delete()
+//                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void unused) {
+//                                            list.clear();
+//                                            getIdSach();
+//                                            txtTongThanhToan.setText("0");
+//                                        }
+//                                    })
+//                                    .addOnFailureListener(new OnFailureListener() {
+//                                        @Override
+//                                        public void onFailure(@NonNull Exception e) {
+//
+//                                        }
+//                                    });
+//                        }
+//                        Toast.makeText(GioHangActivity.this, "Xóa thành công ", Toast.LENGTH_LONG).show();
+//
+//                    }
+//                });
+//            }
+//            if (tongThanhToan != 0) {
+//                txtTongThanhToan.setText(String.valueOf(tongThanhToan));
+//            } else {
+//                txtTongThanhToan.setText(String.valueOf(tongThanhToan));
+//            }
+//
+//        }
+//    };
+
+
 }

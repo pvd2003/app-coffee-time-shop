@@ -1,6 +1,7 @@
 package com.example.pro1121.model;
 
 public class GioHang {
+    private String idgiohang;
     private String tensp;
     private String giasp;
     private String soluong;
@@ -8,12 +9,20 @@ public class GioHang {
     public GioHang() {
     }
 
-    public GioHang(String tensp, String giasp, String soluong) {
+    public GioHang(String tensp, String giasp, String soluong, String idgiohang) {
         this.tensp = tensp;
         this.giasp = giasp;
         this.soluong = soluong;
+        this.idgiohang = idgiohang;
     }
 
+    public String getIdgiohang() {
+        return idgiohang;
+    }
+
+    public void setIdgiohang(String idgiohang) {
+        this.idgiohang = idgiohang;
+    }
 
     public String getTensp() {
         return tensp;
