@@ -76,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new FragmentQLSanPham();
                         break;
 
-                    case R.id.mQLDonHang:
-                        fragment = new FragmentQLDonHang();
-                        break;
+//                    case R.id.mQLDonHang:
+//                        fragment = new FragmentQLDonHang();
+//                        break;
 
 //                    case R.id.mQLLoaiSanPham:
 //                        fragment = new FragmentQLLoaiSanPham();
@@ -128,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
         if(!user.getDisplayName().equals("Admin")){
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mQLSanPham).setVisible(false);
-            menu.findItem(R.id.mQLDonHang).setVisible(false);
 //            menu.findItem(R.id.mQLLoaiSanPham).setVisible(false);
 //            menu.findItem(R.id.mDoanhThu).setVisible(false);
 

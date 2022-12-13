@@ -6,20 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
 import com.example.pro1121.adapter.QuanLySanPhamAdapter;
-import com.example.pro1121.adapter.SanPhamHomeAdapter;
 import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Sanpham;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,14 +31,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
  public class FragmentQLSanPham extends Fragment {
     EditText edtTenSP, edtGiaSP;
     RecyclerView recyclerView;
     Button btnAddSP, btnUpdateSP, btnList;
-    private List<Sanpham> sanphamList;
+    private ArrayList<Sanpham> sanphamList;
     private QuanLySanPhamAdapter quanLySanPhamAdapter;
      FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
      final CollectionReference reference = firebaseFirestore.collection("sanpham");
@@ -107,30 +103,31 @@ import java.util.Map;
                  });
     }
     //Chua Sua Xong
-    private void onClickUpdate(){
-        HashMap<String, Object> map = new HashMap<>();
-        String name = edtTenSP.getText().toString();
-        String price = edtGiaSP.getText().toString();
-        map.put("tensanpham", name);
-        map.put("giasanpham", price);
-        DocumentReference docR = reference.document(String.valueOf(map));
-        docR
-                .update("tensanpham",name,"giasanpham",price)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(getContext(), "sửa thành công!", Toast.LENGTH_SHORT).show();
-                        edtTenSP.setText("");
-                        edtGiaSP.setText("");
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getContext(), "sửa thất bại!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
+//    private void onClickUpdate(){
+//        HashMap<String, Object> map = new HashMap<>();
+//        String name = edtTenSP.getText().toString();
+//        String price = edtGiaSP.getText().toString();
+//        map.put("tensanpham", name);
+//        map.put("giasanpham", price);
+//        int sanpham = map.size();
+//        reference
+//                .document(String.valueOf(map))
+//                .set(sp.getIdsanpham())
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+//                        Toast.makeText(getContext(), "sửa thành công!", Toast.LENGTH_SHORT).show();
+//                        edtTenSP.setText("");
+//                        edtGiaSP.setText("");
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(getContext(), "sửa thất bại!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//    }
 
     public void getlistdatafirebasestore() {
         reference
@@ -147,7 +144,6 @@ import java.util.Map;
                         sanpham.setGiatien(doc.get("giasanpham").toString());
                         sanpham.setIdsanpham(doc.getId());
                         sanphamList.add(sanpham);
-
                     }
                     loadData();
                 }
@@ -172,5 +168,6 @@ import java.util.Map;
         });
         recyclerView.setAdapter(quanLySanPhamAdapter);
     }
+
 }
 

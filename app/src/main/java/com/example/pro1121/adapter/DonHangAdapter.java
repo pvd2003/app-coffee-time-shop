@@ -30,9 +30,6 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.Viewhode
     @Override
     public void onBindViewHolder(@NonNull Viewhoder holder, int position) {
         Donhang donhang = list.get(position);
-        holder.txtmadon.setText("Mã đơn hàng:"+donhang.getMadonhang());
-        holder.txttentk.setText("Tên tài khoản:"+donhang.getTentk());
-        holder.txtemail.setText("Email:"+donhang.getEmail());
         holder.txttensp.setText("Sản phẩm:"+donhang.getTensp());
         holder.txtsoluong.setText("Số lượng:"+donhang.getSoluong());
 
@@ -44,12 +41,9 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.Viewhode
     }
 
     public class  Viewhoder extends RecyclerView.ViewHolder {
-        TextView txtmadon,txtemail,txttentk,txtsoluong,txttensp, tvTongSP;
+        TextView txtsoluong,txttensp, tvTongSP;
         public Viewhoder(@NonNull View itemView) {
             super(itemView);
-            txtmadon = itemView.findViewById(R.id.txtMaDonHang);
-            txtemail = itemView.findViewById(R.id.txtEmail);
-            txttentk = itemView.findViewById(R.id.txtTenTaiKhoan);
             txtsoluong = itemView.findViewById(R.id.txtSoLuong);
             txttensp = itemView.findViewById(R.id.txtTenSP);
             tvTongSP = itemView.findViewById(R.id.txtTenSP);

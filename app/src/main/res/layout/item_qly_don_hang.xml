@@ -6,7 +6,6 @@
     android:layout_margin="10dp"
     app:cardCornerRadius="10dp">
 
-
     <LinearLayout
         android:padding="10dp"
         android:layout_width="match_parent"
@@ -16,7 +15,6 @@
 
             <TextView
                 android:layout_marginBottom="10dp"
-                android:id="@+id/txtMaDonHang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#963F0D"
@@ -24,26 +22,7 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:textSize="25dp"
-                android:text="Mã đơn hàng: 1"/>
-
-            <TextView
-                android:layout_marginBottom="10dp"
-                android:id="@+id/txtTenTaiKhoan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:layout_margin="10dp"
-                android:text="Tên tài khoản: Lê Văn B"/>
-
-
-        <TextView
-            android:layout_marginBottom="10dp"
-            android:id="@+id/txtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_margin="10dp"
-            android:text="Email: LVB123@gmail.com"/>
+                android:text="Đơn hàng của bạn"/>
 
         <TextView
             android:layout_marginBottom="10dp"
@@ -52,7 +31,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_margin="10dp"
-            android:text="Sản Phẩm: Latte"/>
+            android:text="Ngày: 12/13/2022"/>
 
         <TextView
             android:layout_marginBottom="10dp"
@@ -61,7 +40,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_margin="10dp"
-            android:text="Số lượng: 2"/>
+            android:text="Số lượng sản phẩm: 2"/>
 
         <TextView
             android:layout_marginBottom="10dp"
@@ -70,6 +49,6 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_margin="10dp"
-            android:text="Giá Tiền: 20000 VND"/>
+            android:text="Tổng đơn hàng: 20000 VND"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
