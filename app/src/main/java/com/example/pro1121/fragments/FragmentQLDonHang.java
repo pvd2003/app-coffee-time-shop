@@ -46,7 +46,7 @@ public class FragmentQLDonHang extends Fragment {
                  for (QueryDocumentSnapshot doc: querySnapshot){
                      Donhang donhang = new Donhang();
                      donhang.setEmail(doc.get("email").toString());
-                    donhang.setMadonhang(Integer.parseInt(doc.get("mã đơn hàng").toString()));
+                     donhang.setMadonhang(Integer.parseInt(doc.get("mã đơn hàng").toString()));
                      donhang.setSoluong(Integer.parseInt(doc.get("số lượng").toString()));
                      donhang.setTentk(doc.get("tên").toString());
                      donhang.setTensp(doc.get("tên sản phẩm").toString());

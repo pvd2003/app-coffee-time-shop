@@ -43,6 +43,8 @@ import java.util.Map;
     Button btnAddSP, btnUpdateSP, btnList;
     private List<Sanpham> sanphamList;
     private QuanLySanPhamAdapter quanLySanPhamAdapter;
+     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+     final CollectionReference reference = firebaseFirestore.collection("sanpham");
 
 
     @Nullable
@@ -87,8 +89,6 @@ import java.util.Map;
          Map<String, Object> sanpham = new HashMap<>();
          sanpham.put("tensanpham", edtTenSP.getText().toString());
          sanpham.put("giasanpham", edtGiaSP.getText().toString());
-         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-         final CollectionReference reference = firebaseFirestore.collection("sanpham");
          reference.add(sanpham)
                  .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                      @Override
@@ -96,6 +96,7 @@ import java.util.Map;
                          Toast.makeText(getContext(), "add thành công!", Toast.LENGTH_SHORT).show();
                          edtTenSP.setText("");
                          edtGiaSP.setText("");
+                         getlistdatafirebasestore();
                      }
                  }).addOnFailureListener(new OnFailureListener() {
                      @Override
@@ -112,8 +113,6 @@ import java.util.Map;
         String price = edtGiaSP.getText().toString();
         map.put("tensanpham", name);
         map.put("giasanpham", price);
-        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-        final CollectionReference reference = firebaseFirestore.collection("sanpham");
         DocumentReference docR = reference.document(String.valueOf(map));
         docR
                 .update("tensanpham",name,"giasanpham",price)
@@ -134,8 +133,6 @@ import java.util.Map;
     }
 
     public void getlistdatafirebasestore() {
-        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-        final CollectionReference reference = firebaseFirestore.collection("sanpham");
         reference
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -152,24 +149,28 @@ import java.util.Map;
                         sanphamList.add(sanpham);
 
                     }
-                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-                    recyclerView.setLayoutManager(linearLayoutManager);
-                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
-                            , DividerItemDecoration.VERTICAL);
-                    recyclerView.addItemDecoration(dividerItemDecoration);
-                    quanLySanPhamAdapter = new QuanLySanPhamAdapter(sanphamList, new ItemClick() {
-                        @Override
-                        public void onClickSanPham(Sanpham sanpham) {
-                            edtTenSP.setText(sanpham.getTenSP());
-                            edtGiaSP.setText(sanpham.getGiatien());
-                        }
-                    });
-                    recyclerView.setAdapter(quanLySanPhamAdapter);
+                    loadData();
                 }
 
             }
         });
 
+    }
+
+    private void loadData(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
+                , DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        quanLySanPhamAdapter = new QuanLySanPhamAdapter(sanphamList, new ItemClick() {
+            @Override
+            public void onClickSanPham(Sanpham sanpham) {
+                edtTenSP.setText(sanpham.getTenSP());
+                edtGiaSP.setText(sanpham.getGiatien());
+            }
+        });
+        recyclerView.setAdapter(quanLySanPhamAdapter);
     }
 }
 

@@ -80,17 +80,17 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new FragmentQLDonHang();
                         break;
 
-                    case R.id.mQLLoaiSanPham:
-                        fragment = new FragmentQLLoaiSanPham();
-                        break;
+//                    case R.id.mQLLoaiSanPham:
+//                        fragment = new FragmentQLLoaiSanPham();
+//                        break;
 
                     case R.id.mTop10:
                         fragment = new FragmentTop10();
                         break;
 
-                    case R.id.mDoanhThu:
-                        fragment = new FragmentDoanhThu();
-                        break;
+//                    case R.id.mDoanhThu:
+//                        fragment = new FragmentDoanhThu();
+//                        break;
 
                     case R.id.mThoat:
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -129,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mQLSanPham).setVisible(false);
             menu.findItem(R.id.mQLDonHang).setVisible(false);
-            menu.findItem(R.id.mQLLoaiSanPham).setVisible(false);
-            menu.findItem(R.id.mDoanhThu).setVisible(false);
+//            menu.findItem(R.id.mQLLoaiSanPham).setVisible(false);
+//            menu.findItem(R.id.mDoanhThu).setVisible(false);
 
         }
     }
