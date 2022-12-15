@@ -153,9 +153,6 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
             tvGiaTien= view.findViewById(R.id.tvGiaTien);
             imgDelete = view.findViewById(R.id.imgDelete);
             imgUpdate = view.findViewById(R.id.imgUpdate);
-
-
         }
-        //
     }
 }
