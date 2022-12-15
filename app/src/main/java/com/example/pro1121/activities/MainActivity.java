@@ -17,23 +17,20 @@ import android.widget.FrameLayout;
 
 import com.example.pro1121.R;
 import com.example.pro1121.fragments.FragmentCaNhan;
-import com.example.pro1121.fragments.FragmentDoanhThu;
 import com.example.pro1121.fragments.FragmentHome;
-import com.example.pro1121.fragments.FragmentQLDonHang;
 import com.example.pro1121.fragments.FragmentQLGioHang;
 import com.example.pro1121.fragments.FragmentQLSanPham;
-import com.example.pro1121.fragments.FragmentQLLoaiSanPham;
-import com.example.pro1121.fragments.FragmentTop10;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolBar;
     private FrameLayout frameLayout;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,22 +73,6 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new FragmentQLSanPham();
                         break;
 
-//                    case R.id.mQLDonHang:
-//                        fragment = new FragmentQLDonHang();
-//                        break;
-
-//                    case R.id.mQLLoaiSanPham:
-//                        fragment = new FragmentQLLoaiSanPham();
-//                        break;
-
-                    case R.id.mTop10:
-                        fragment = new FragmentTop10();
-                        break;
-
-//                    case R.id.mDoanhThu:
-//                        fragment = new FragmentDoanhThu();
-//                        break;
-
                     case R.id.mThoat:
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         finish();
@@ -113,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         closeFunction();
+
     }
 
     @Override
@@ -123,16 +105,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Ẩn chức năng khi không phải là nhân viên
     private void closeFunction(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(!user.getDisplayName().equals("Admin")){
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mQLSanPham).setVisible(false);
-//            menu.findItem(R.id.mQLLoaiSanPham).setVisible(false);
-//            menu.findItem(R.id.mDoanhThu).setVisible(false);
 
         }
     }
-
-
 }

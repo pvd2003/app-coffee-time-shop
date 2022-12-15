@@ -24,15 +24,16 @@ public class SplashScreenActivity extends AppCompatActivity {
         nextActivity();
     }
 
+    //Chuyển sang trang Login
     private void nextActivity() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
-            //Chưa login
+            //Chưa login chuyển sang màn hình Login
             Intent intent = new Intent(this,LoginActivity.class);
             startActivity(intent);
 
         } else {
-            //Đã login
+            //Đã login chuyển sang màn hình nhập thông tin cá nhân
             Intent intent = new Intent(this,ThongTinCaNhanActivity.class);
             startActivity(intent);
         }

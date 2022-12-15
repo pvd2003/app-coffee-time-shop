@@ -39,9 +39,6 @@ public class OrderActivity extends AppCompatActivity {
     Sanpham sanpham;
 
     int number= 1;
-//   double tongtien;
-//    int soluong;
-//    int madonhang = 1;
 
 
     @Override
@@ -56,10 +53,10 @@ public class OrderActivity extends AppCompatActivity {
         imgPrev= findViewById(R.id.imgPrev);
         btnBuyNow = findViewById(R.id.btnBuyNow);
 
-        Sanpham sanpham = (Sanpham) getIntent().getSerializableExtra("chitietsanppham");
-        tvTilteSP.setText(sanpham.getTenSP());
-        tvPriceSP.setText(sanpham.getGiatien());
+        getChiTietSP();
 
+
+        //Nút tăng số lượng
         tvThemSL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +65,7 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
+        //Nút giảm số lượng
         tvGiamSl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +76,7 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
+        //Nút quay lại
         imgPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +84,7 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
+        //Nút mua sản phẩm
         btnBuyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +93,7 @@ public class OrderActivity extends AppCompatActivity {
         });
     }
 
+    //Nút thêm sản phẩm vào giỏ hàng
     private void onClickAddGioHang(){
         String tensp = tvTilteSP.getText().toString();
         String giaSP = tvPriceSP.getText().toString();
@@ -118,6 +119,13 @@ public class OrderActivity extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    //Lấy thông tin chi tiết sản phẩm từ trang home
+    private void getChiTietSP(){
+        Sanpham sanpham = (Sanpham) getIntent().getSerializableExtra("chitietsanppham");
+        tvTilteSP.setText(sanpham.getTenSP());
+        tvPriceSP.setText(sanpham.getGiatien());
     }
 
 }

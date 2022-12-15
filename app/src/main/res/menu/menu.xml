@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/mnHome"
         android:title="Home"
@@ -14,37 +15,12 @@
         android:icon="@drawable/ic_coffee"
         android:title="Quản lý sản phẩm" />
 
-    <item
-        android:id="@+id/mQLDonHang"
-        android:icon="@drawable/ic_event_note"
-        android:title="Quản lý đơn hàng" />
-
-<!--    <item-->
-<!--        android:id="@+id/mQLLoaiSanPham"-->
-<!--        android:icon="@drawable/ic_person"-->
-<!--        android:title="Quản lý loại sản phẩm" />-->
-
-    <item android:title="Thống kê">
-        <menu>
-            <item
-                android:id="@+id/mTop10"
-                android:icon="@drawable/ic_vertical_align_top"
-                android:title="Top 10 sản phẩm mua nhiều nhất" />
-
-<!--            <item-->
-<!--                android:id="@+id/mDoanhThu"-->
-<!--                android:icon="@drawable/ic_attach_money"-->
-<!--                android:title="Doanh thu" />-->
-        </menu>
-    </item>
-
     <item android:title="Người dùng">
         <menu>
             <item
                 android:id="@+id/mCaNhan"
                 android:icon="@drawable/ic_ca_nhan"
                 android:title="Tài khoản" />
-
 
             <item
                 android:id="@+id/mThoat"

@@ -36,7 +36,7 @@ import java.util.Map;
  public class FragmentQLSanPham extends Fragment {
     EditText edtTenSP, edtGiaSP;
     RecyclerView recyclerView;
-    Button btnAddSP, btnUpdateSP, btnList;
+    Button btnAddSP, btnList;
     private ArrayList<Sanpham> sanphamList;
     private QuanLySanPhamAdapter quanLySanPhamAdapter;
      FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -52,7 +52,6 @@ import java.util.Map;
         recyclerView = view.findViewById(R.id.rvQLSanPham);
         btnList = view.findViewById(R.id.btnList);
         btnAddSP = view.findViewById(R.id.btnAddSP);
-        btnUpdateSP = view.findViewById(R.id.btnUpdateSP);
         getlistdatafirebasestore();
 
             btnAddSP.setOnClickListener(new View.OnClickListener() {
@@ -69,19 +68,11 @@ import java.util.Map;
             }
         });
 
-        btnUpdateSP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                onClickUpdate();
-            }
-        });
-
-
         return view;
 
     }
-
-     private void onClickAdd() {
+    //Thực hiện thêm sản phẩm
+    private void onClickAdd() {
          Map<String, Object> sanpham = new HashMap<>();
          sanpham.put("tensanpham", edtTenSP.getText().toString());
          sanpham.put("giasanpham", edtGiaSP.getText().toString());
@@ -102,33 +93,8 @@ import java.util.Map;
                      }
                  });
     }
-    //Chua Sua Xong
-//    private void onClickUpdate(){
-//        HashMap<String, Object> map = new HashMap<>();
-//        String name = edtTenSP.getText().toString();
-//        String price = edtGiaSP.getText().toString();
-//        map.put("tensanpham", name);
-//        map.put("giasanpham", price);
-//        int sanpham = map.size();
-//        reference
-//                .document(String.valueOf(map))
-//                .set(sp.getIdsanpham())
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void unused) {
-//                        Toast.makeText(getContext(), "sửa thành công!", Toast.LENGTH_SHORT).show();
-//                        edtTenSP.setText("");
-//                        edtGiaSP.setText("");
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(getContext(), "sửa thất bại!", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//    }
 
+    //Lấy dữ liệu từ Firebase
     public void getlistdatafirebasestore() {
         reference
                 .get()
@@ -153,19 +119,14 @@ import java.util.Map;
 
     }
 
-    private void loadData(){
+     //Hiện tất cả sản phẩm lên màn hình
+     private void loadData(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext()
                 , DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
-        quanLySanPhamAdapter = new QuanLySanPhamAdapter(sanphamList, new ItemClick() {
-            @Override
-            public void onClickSanPham(Sanpham sanpham) {
-                edtTenSP.setText(sanpham.getTenSP());
-                edtGiaSP.setText(sanpham.getGiatien());
-            }
-        });
+        quanLySanPhamAdapter = new QuanLySanPhamAdapter(sanphamList);
         recyclerView.setAdapter(quanLySanPhamAdapter);
     }
 

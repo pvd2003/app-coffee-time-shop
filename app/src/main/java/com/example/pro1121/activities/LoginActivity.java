@@ -50,25 +50,29 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    //Chuyển sang trang đăng ký
     private void Register() {
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
     }
 
+    //Đăng nhập tài khoản
     private void Login() {
         String email, password;
         email = etEmail.getText().toString();
         password = etPassword.getText().toString();
 
-        if (TextUtils.isEmpty(email)) {
+        //Kiểm tra điều kiện
+        if (email.equals("")) {
             Toast.makeText(this, "Vui lòng nhập email!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (TextUtils.isEmpty(password)) {
+        if (password.equals("")) {
             Toast.makeText(this, "Vui lòng nhập password!", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        //So sánh dữ liệu vừa nhập với dữ liệu trên Firebase
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

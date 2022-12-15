@@ -55,11 +55,13 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    //Thực hiện đăng ký
     private void Register() {
         String email, password;
         email = etEmail.getText().toString();
         password = etPassword.getText().toString();
 
+        //Kiểm tra điều kiện
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Vui lòng nhập email!", Toast.LENGTH_SHORT).show();
             return;
@@ -69,7 +71,10 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Vui lòng nhập password!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         progressDialog.show();
+
+        //Tạo thêm tài khoản vào Firebase
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

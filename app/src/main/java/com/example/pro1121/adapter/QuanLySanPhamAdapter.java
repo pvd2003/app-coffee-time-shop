@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -11,24 +13,20 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
 import com.example.pro1121.fragments.FragmentQLSanPham;
 import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Sanpham;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.DialogPlusBuilder;
+import com.orhanobut.dialogplus.ViewHolder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,12 +35,10 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
 
 
     private List<Sanpham> mlist;
-    private ItemClick itemClick;
     private FragmentQLSanPham mfragmentQLSanPham;
 
-    public QuanLySanPhamAdapter(List<Sanpham> mlist, ItemClick itemClick) {
+    public QuanLySanPhamAdapter(List<Sanpham> mlist) {
         this.mlist = mlist;
-        this.itemClick = itemClick;
     }
 
     @NonNull
@@ -58,25 +54,52 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
      holder.tvTenSP.setText("Tên sản phẩm: " + sp.getTenSP());
      holder.tvGiaTien.setText("Giá tiền: " + sp.getGiatien() );
 
-     holder.linearSanPham.setOnClickListener(new View.OnClickListener() {
+     //Sửa sản phẩm đã chọn trong quản lý sản phẩm
+     holder.imgUpdate.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             Sanpham sanpham = mlist.get(holder.getAdapterPosition());
-             itemClick.onClickSanPham(sanpham);
+             DialogPlus dialogPlus = DialogPlus.newDialog(holder.tvTenSP.getContext())
+                     .setContentHolder(new ViewHolder(R.layout.dialog_update_san_pham))
+                     .setExpanded(true,600)
+                     .create();
+
+             View mView = dialogPlus.getHolderView();
+             EditText edtTenSPDialog = mView.findViewById(R.id.edtTenSPDialog);
+             EditText edtGiaSPDialog = mView.findViewById(R.id.edtGiaSPDialog);
+             Button btnUpdateSP = mView.findViewById(R.id.btnUpdateSP);
+
+             edtTenSPDialog.setText(sp.getTenSP());
+             edtGiaSPDialog.setText(sp.getGiatien());
+
+             dialogPlus.show();
+
+             btnUpdateSP.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     Map<String, Object> map = new HashMap<>();
+                     map.put("tensanpham",edtTenSPDialog.getText().toString());
+                     map.put("giasanpham",edtGiaSPDialog.getText().toString());
+                     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+                     final CollectionReference reference = firebaseFirestore.collection("sanpham");
+                     reference.document(sp.getIdsanpham())
+                             .update(map)
+                             .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                 @Override
+                                 public void onSuccess(Void unused) {
+                                    dialogPlus.dismiss();
+                                 }
+                             }).addOnFailureListener(new OnFailureListener() {
+                                 @Override
+                                 public void onFailure(@NonNull Exception e) {
+                                     dialogPlus.dismiss();
+                                 }
+                             });
+                 }
+             });
          }
      });
 
-//     holder.imgUpdate.setOnClickListener(new View.OnClickListener() {
-//         @Override
-//         public void onClick(View v) {
-//             AlertDialog.Builder builder = new AlertDialog.Builder(mfragmentQLSanPham.getContext())
-//                     .setNegativeButton("OK", null)
-//                     .setPositiveButton("Close",null);
-//             LayoutInflater inflater = holder.;
-//             View view = inflater.inflate(R.layout.dialog_update_san_pham,null);
-//         }
-//     });
-
+     //Xóa sản phẩm đã chọn trong quản lý sản phẩm
      holder.imgDelete.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
@@ -93,28 +116,26 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
                              .addOnSuccessListener(new OnSuccessListener<Void>() {
                          @Override
                          public void onSuccess(Void unused) {
-                             Toast.makeText(holder.tvTenSP.getContext(), "xóa thành công!", Toast.LENGTH_SHORT).show();
+                             notifyDataSetChanged();
                          }
                      }).addOnFailureListener(new OnFailureListener() {
                                  @Override
                                  public void onFailure(@NonNull Exception e) {
-                                     Toast.makeText(holder.tvTenSP.getContext(), "xóa thất bại!", Toast.LENGTH_SHORT).show();
+
                                  }
                              });
                  }
              });
-
              builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                  @Override
                  public void onClick(DialogInterface dialog, int which) {
 
                  }
              });
+
              builder.show();
          }
      });
-
-
     }
 
     @Override
@@ -124,7 +145,6 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
 
     public class Viewhoder extends RecyclerView.ViewHolder {
       TextView tvTenSP, tvGiaTien;
-      LinearLayout linearSanPham;
       ImageView imgDelete, imgUpdate;
 
         public Viewhoder(@NonNull View view) {
@@ -133,7 +153,7 @@ public class QuanLySanPhamAdapter extends RecyclerView.Adapter<QuanLySanPhamAdap
             tvGiaTien= view.findViewById(R.id.tvGiaTien);
             imgDelete = view.findViewById(R.id.imgDelete);
             imgUpdate = view.findViewById(R.id.imgUpdate);
-            linearSanPham = view.findViewById(R.id.linearSanPham);
+
 
         }
         //

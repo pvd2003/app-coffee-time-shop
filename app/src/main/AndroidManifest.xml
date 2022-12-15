@@ -23,13 +23,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.TTDonhangActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".activities.OrderActivity"
             android:exported="false">
             <meta-data

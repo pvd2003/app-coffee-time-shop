@@ -38,8 +38,7 @@ public class SanPhamHomeAdapter extends RecyclerView.Adapter<SanPhamHomeAdapter.
         Sanpham sp = mlist.get(position);
      holder.tvTenSanPham.setText(sp.getTenSP());
 
-
-
+     //Thực hiện click vào 1 sản phẩm trong trang home
      holder.imgSanPham.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
@@ -47,8 +46,6 @@ public class SanPhamHomeAdapter extends RecyclerView.Adapter<SanPhamHomeAdapter.
              itemClick.onClickSanPham(sanpham);
          }
      });
-
-
     }
 
     @Override
@@ -64,10 +61,6 @@ public class SanPhamHomeAdapter extends RecyclerView.Adapter<SanPhamHomeAdapter.
             super(view);
             tvTenSanPham= view.findViewById(R.id.tvTenSanPham);
             imgSanPham= view.findViewById(R.id.imgSanPham);
-
-
-
         }
-        //
     }
 }

@@ -6,6 +6,19 @@
     android:background="#FFF7EE"
     android:orientation="vertical">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="ĐỔI MẬT KHẨU"
+        android:layout_marginBottom="40dp"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:fontFamily="@font/baloo2_medium"
+        android:background="@drawable/header_fragment"/>
+
     <EditText
         android:id="@+id/edtTenUser"
         android:layout_width="match_parent"
@@ -24,7 +37,8 @@
         android:background="@drawable/custom_et"
         android:editable="false"
         android:paddingLeft="15dp"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:layout_marginBottom="30dp"/>
 
 
 </LinearLayout>

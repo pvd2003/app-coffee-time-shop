@@ -55,16 +55,6 @@
                     android:textSize="20sp" />
 
                 <Button
-                    android:id="@+id/btnUpdateSP"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#963F0D"
-                    android:text="Sửa"
-                    android:textSize="20sp" />
-
-                <Button
                     android:id="@+id/btnAddSP"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -79,7 +69,6 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/btnthemmoi"
         android:id="@+id/rvQLSanPham"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"

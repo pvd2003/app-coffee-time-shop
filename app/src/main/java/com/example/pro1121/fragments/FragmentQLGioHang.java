@@ -54,11 +54,10 @@ public class FragmentQLGioHang extends Fragment {
                 onClickThanhToan();
             }
         });
-
-
         return view;
     }
 
+    //Lấy dữ liệu từ Firebase
     public void getlistdatafirebasestore() {
         reference
                 .get()
@@ -83,6 +82,7 @@ public class FragmentQLGioHang extends Fragment {
         });
     }
 
+    //Hiện tất cả sản phẩm lên màn hình
     private void loadData(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);;
@@ -90,6 +90,7 @@ public class FragmentQLGioHang extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
+    //Thực hiện thanh toán các sản phẩm
     private void onClickThanhToan(){
         for(int i = 0; i < gioHangList.size(); i++){
             GioHang gioHang = (GioHang) gioHangList.get(i);
@@ -114,6 +115,7 @@ public class FragmentQLGioHang extends Fragment {
 
     }
 
+    //Thực hiện tính tổng thành tiền của tất cả sản phẩm có trong giỏ hàng
     private void tongTien(){
         int tong = 0;
         for(int i = 0; i < gioHangList.size(); i++){

@@ -61,6 +61,7 @@ public class FragmentCaNhan extends Fragment {
     return view;
     }
 
+    //Hiện thông tin người dùng
     public void showUserInformation(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user == null){
