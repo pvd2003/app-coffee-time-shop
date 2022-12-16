@@ -1,9 +1,12 @@
 package com.example.pro1121.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro1121.R;
+import com.example.pro1121.activities.MainActivity;
 import com.example.pro1121.adapter.GioHangAdapter;
 import com.example.pro1121.model.GioHang;
 import com.example.pro1121.model.Sanpham;
@@ -21,21 +25,28 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class FragmentQLGioHang extends Fragment {
     TextView tvThanhTien,btnThanhToan;
     List<GioHang> gioHangList;
     GioHangAdapter adapter;
     RecyclerView recyclerView;
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    final CollectionReference reference = firebaseFirestore.collection("giohang");
+
 
     @Nullable
     @Override
@@ -59,6 +70,8 @@ public class FragmentQLGioHang extends Fragment {
 
     //Lấy dữ liệu từ Firebase
     public void getlistdatafirebasestore() {
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        final CollectionReference reference = firebaseFirestore.collection("giohang");
         reference
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -92,8 +105,11 @@ public class FragmentQLGioHang extends Fragment {
 
     //Thực hiện thanh toán các sản phẩm
     private void onClickThanhToan(){
+        putLichSU();
         for(int i = 0; i < gioHangList.size(); i++){
             GioHang gioHang = (GioHang) gioHangList.get(i);
+            FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+            final CollectionReference reference = firebaseFirestore.collection("giohang");
             reference.document(gioHang.getIdgiohang())
                     .delete()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -111,8 +127,7 @@ public class FragmentQLGioHang extends Fragment {
                         }
                     });
         }
-
-
+        diaLogThanhCong();
     }
 
     //Thực hiện tính tổng thành tiền của tất cả sản phẩm có trong giỏ hàng
@@ -126,6 +141,49 @@ public class FragmentQLGioHang extends Fragment {
         }
         tvThanhTien.setText(tong +" vnd");
 
+    }
+
+    private void putLichSU(){
+        String tong = tvThanhTien.getText().toString();
+        String currentDate = new SimpleDateFormat("HH:mm dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("ngay",currentDate);
+        map.put("tong",tong);
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        final CollectionReference referencels = firebaseFirestore.collection("lichsu");
+        referencels
+                .add(map)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+    }
+
+    private void diaLogThanhCong(){
+        DialogPlus dialogPlus = DialogPlus.newDialog(getContext())
+                .setContentHolder(new ViewHolder(R.layout.dialog_thanh_toan))
+                .setExpanded(true,1500)
+                .create();
+
+        View mView = dialogPlus.getHolderView();
+        TextView btnChuyenTrang = mView.findViewById(R.id.btnChuyenTrang);
+
+        btnChuyenTrang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        dialogPlus.show();
     }
 
 }

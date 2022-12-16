@@ -10,6 +10,10 @@
         android:title="Giỏ Hàng"
         android:icon="@drawable/ic_gio_hang"/>
 
+    <item android:id="@+id/mLichSu"
+        android:title="Lịch sử đơn hàng"
+        android:icon="@drawable/ic_assignment"/>
+
     <item
         android:id="@+id/mQLSanPham"
         android:icon="@drawable/ic_coffee"

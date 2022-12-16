@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import com.example.pro1121.R;
 import com.example.pro1121.fragments.FragmentCaNhan;
 import com.example.pro1121.fragments.FragmentHome;
+import com.example.pro1121.fragments.FragmentLichSu;
 import com.example.pro1121.fragments.FragmentQLGioHang;
 import com.example.pro1121.fragments.FragmentQLSanPham;
 import com.google.android.material.navigation.NavigationView;
@@ -63,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.mQLGioHang:
                         fragment = new FragmentQLGioHang();
+                        break;
+
+                    case R.id.mLichSu:
+                        fragment = new FragmentLichSu();
                         break;
 
                     case R.id.mCaNhan:
