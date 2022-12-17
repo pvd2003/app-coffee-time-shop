@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         if(!user.getDisplayName().equals("Admin")){
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mQLSanPham).setVisible(false);
+            menu.findItem(R.id.mLichSu).setVisible(false);
 
         }
     }

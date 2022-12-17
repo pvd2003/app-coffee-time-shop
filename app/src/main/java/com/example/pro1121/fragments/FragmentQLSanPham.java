@@ -57,6 +57,13 @@ import java.util.Map;
             btnAddSP.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(edtTenSP.getText().toString().equals("")){
+                        Toast.makeText(getContext(), "Vui lòng nhập tên sản phẩm", Toast.LENGTH_SHORT).show();
+                        return;
+                    }if(edtGiaSP.getText().toString().equals("")){
+                        Toast.makeText(getContext(), "Vui lòng nhập giá sản phẩm", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     onClickAdd();
                 }
             });

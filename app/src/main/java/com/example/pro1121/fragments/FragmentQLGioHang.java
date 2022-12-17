@@ -153,7 +153,6 @@ public class FragmentQLGioHang extends Fragment {
          email = myshare.getString("email","");
         String currentDate = new SimpleDateFormat("HH:mm dd-MM-yyyy", Locale.getDefault()).format(new Date());
         HashMap<String, Object> map = new HashMap<>();
-
         map.put("ngay",currentDate);
         map.put("tong",tong);
         map.put("em",email);
