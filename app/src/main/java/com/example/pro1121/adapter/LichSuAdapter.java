@@ -44,6 +44,7 @@ public class LichSuAdapter extends RecyclerView.Adapter<LichSuAdapter.Viewhoder>
         holder.tvTime.setText("Ngày: " + lichSu.getTime());
         holder.tvTrangThai.setText("Trạng thái: Đã thanh toán");
         holder.tvTong.setText("Tổng: " + lichSu.getTong());
+        holder.tvemail.setText("Emai:"+lichSu.getEmail());
 
     }
 
@@ -53,14 +54,15 @@ public class LichSuAdapter extends RecyclerView.Adapter<LichSuAdapter.Viewhoder>
     }
 
     public class Viewhoder extends RecyclerView.ViewHolder {
-      TextView tvTime, tvTrangThai, tvTong;
+      TextView tvTime, tvTrangThai, tvTong,tvemail;
+
 
         public Viewhoder(@NonNull View view) {
             super(view);
             tvTime= view.findViewById(R.id.tvTime);
             tvTrangThai= view.findViewById(R.id.tvTrangThai);
             tvTong= view.findViewById(R.id.tvTong);
-
+            tvemail = view.findViewById(R.id.tvemail);
         }
 
     }

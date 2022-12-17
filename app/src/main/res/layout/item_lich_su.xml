@@ -59,6 +59,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:text="Tổng: 20000"/>
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:id="@+id/tvemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Email: cc@gmail.com"/>
 
         </LinearLayout>
     </LinearLayout>

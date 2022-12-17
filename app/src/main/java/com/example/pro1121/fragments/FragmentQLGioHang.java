@@ -1,6 +1,9 @@
 package com.example.pro1121.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -145,10 +148,15 @@ public class FragmentQLGioHang extends Fragment {
 
     private void putLichSU(){
         String tong = tvThanhTien.getText().toString();
+        String email="";
+         SharedPreferences myshare = getActivity().getSharedPreferences("mysave",MODE_PRIVATE);
+         email = myshare.getString("email","");
         String currentDate = new SimpleDateFormat("HH:mm dd-MM-yyyy", Locale.getDefault()).format(new Date());
         HashMap<String, Object> map = new HashMap<>();
+
         map.put("ngay",currentDate);
         map.put("tong",tong);
+        map.put("em",email);
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         final CollectionReference referencels = firebaseFirestore.collection("lichsu");
         referencels

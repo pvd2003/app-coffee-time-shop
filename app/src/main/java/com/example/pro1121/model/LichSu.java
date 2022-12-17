@@ -5,15 +5,17 @@ public class LichSu {
     private String time;
     private String trangthai;
     private String tong;
+    private String email;
 
     public LichSu() {
     }
 
-    public LichSu(String idlichsu, String time, String trangthai, String tong) {
+    public LichSu(String idlichsu, String time, String trangthai, String tong,String email) {
         this.idlichsu = idlichsu;
         this.time = time;
         this.trangthai = trangthai;
         this.tong = tong;
+        this.email= email;
     }
 
     public String getIdlichsu() {
@@ -46,5 +48,13 @@ public class LichSu {
 
     public void setTong(String tong) {
         this.tong = tong;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

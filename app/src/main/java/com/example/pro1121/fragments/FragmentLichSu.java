@@ -63,6 +63,7 @@ public class FragmentLichSu extends Fragment {
                             QuerySnapshot querySnapshot = task.getResult();
                             for (QueryDocumentSnapshot doc : querySnapshot) {
                                 LichSu lichSu = new LichSu();
+                                lichSu.setEmail(doc.getString("em"));
                                 lichSu.setTime(doc.getString("ngay"));
                                 lichSu.setTong(doc.getString("tong"));
                                 lichSuList.add(lichSu);

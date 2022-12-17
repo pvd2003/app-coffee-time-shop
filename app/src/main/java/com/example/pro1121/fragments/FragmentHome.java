@@ -1,7 +1,8 @@
 package com.example.pro1121.fragments;
 
 
-
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.SearchView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -29,11 +30,11 @@ import com.example.pro1121.adapter.SanPhamHomeAdapter;
 import com.example.pro1121.model.ItemClick;
 import com.example.pro1121.model.Photo;
 import com.example.pro1121.model.Sanpham;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -49,6 +50,8 @@ public class FragmentHome extends Fragment {
     private EditText edtSearch;
     private SanPhamHomeAdapter msanphamaapter;
     private RecyclerView recyclerView;
+    private MenuItem menuItem;
+    private SearchView searchView;
 
     List<Sanpham> mlistsp;
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -62,8 +65,6 @@ public class FragmentHome extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         recyclerView = view.findViewById(R.id.rcysp);
-        edtSearch = view.findViewById(R.id.edtSearch);
-
         viewPager = view.findViewById(R.id.viewpager);
         circleIndicator = view.findViewById(R.id.circleIndicator);
 
@@ -130,7 +131,36 @@ public class FragmentHome extends Fragment {
         circleIndicator.setViewPager(viewPager);
         adapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
     }
-    
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+          inflater.inflate(R.menu.menusearch,menu);
+
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.find).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                msanphamaapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                msanphamaapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
 
 }
 
