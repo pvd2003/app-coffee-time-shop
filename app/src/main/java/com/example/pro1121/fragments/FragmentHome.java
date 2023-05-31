@@ -132,6 +132,7 @@ public class FragmentHome extends Fragment {
         adapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
     }
 
+    //Hiển thị nút tìm kiếm sản phẩm
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);

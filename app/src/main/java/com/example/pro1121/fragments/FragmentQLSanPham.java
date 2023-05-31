@@ -39,8 +39,8 @@ import java.util.Map;
     Button btnAddSP, btnList;
     private ArrayList<Sanpham> sanphamList;
     private QuanLySanPhamAdapter quanLySanPhamAdapter;
-     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-     final CollectionReference reference = firebaseFirestore.collection("sanpham");
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    final CollectionReference reference = firebaseFirestore.collection("sanpham");
 
 
     @Nullable
